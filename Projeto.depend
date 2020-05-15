@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1589559174 source:c:\users\theph\documents\github\psi19_m4567_2219096_duartecunha\psi19_m4567_2219096_duartecunha\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.c>
+	<locale.h>
+
