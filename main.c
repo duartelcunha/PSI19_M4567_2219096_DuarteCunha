@@ -4,6 +4,24 @@
 #include <conio.c>
 #include <locale.h>
 
+struct utilizador
+{
+char user[15];
+char pin[10];
+}*ctrl;
+
+void login_register()
+{
+FILE *fp
+char nome[15];
+char
+}
+
+
+
+
+
+
 
 int main()
 {
@@ -11,8 +29,6 @@ setlocale(LC_ALL, "Portuguese");
 
 //login--------------------------------------------------------------------
 int conta,s;
-char user[10];
-char pin[10];
 char reg1[30];
 char reg2[30];
 char linha[128];
