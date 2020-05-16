@@ -17,7 +17,7 @@ char reg1[30];
 char reg2[30];
 char linha[128];
 
-
+FILE *ficheiro=fopen("reg.txt","a+");
 
 
 system("cls");
@@ -52,28 +52,33 @@ printf("Código PIN: ");
 scanf("%s",&pin);
 Sleep(300);
 
-FILE *ficheiro=fopen("reg.txt","r+");
+
 if (ficheiro) {
+
 while(fgets(linha, sizeof linha, ficheiro))
 {
-if(sscanf(linha,"%29s %29s", reg1, reg2) == 2)
+if(sscanf(linha,"%30s %30s", reg1, reg2) == 2)
 {
-if ((strcmp(user, reg1) == 0) && (strcmp(pin, reg2) == 0)) {
-                    printf("\n>>>User and password correct!<<<\n");
-                    return main();
+if ((strcmp(user, reg1)==0) && (strcmp(pin, reg2)==0))
+{
+if((strcmp(user, reg1)==0) && (strcmp(pin, reg2)==0))
+{
 }
 else
 {
-                    printf("\n>>>User or password incorrect!<<<\n");
-                    system("PAUSE");
-                    return main();
+ printf("\nPin ou Utilizador - Incorreto\n");
 }
 }
-        // else: line is invalid!
+else
+{
+printf("\nPin ou Utilizador - Incorreto\n");
+system("PAUSE");
+return main();
+}
+}
 }
 fclose(ficheiro);
 }
-
 
 break;
 
@@ -91,7 +96,7 @@ fflush(ficheiro);
 gotoxy(20,6);
 printf("Digite o CÓDIGO PIN: ");
 scanf("%s",&reg2);
-fprintf(ficheiro," %s",reg2);
+fprintf(ficheiro," %s\n",reg2);
 fflush(ficheiro);
 gotoxy(20,8);
 printf("Obrigado!");
