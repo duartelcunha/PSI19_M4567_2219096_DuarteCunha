@@ -6,129 +6,72 @@
 
 struct utilizador
 {
-char user[15];
-char pin[10];
-}*ctrl;
+ char user[15];
+ char pin[10];
+}u;
 
-void login_register()
+login()
 {
-FILE *fp
-char nome[15];
-char
+system("cls");
+
+gotoxy(20,2);
+printf(">>LOGIN<<");
+
+gotoxy(20,4);
+printf("Utilizador: ");
+scanf("%s",&u.user);
+
+gotoxy(20,6);
+printf("Código PIN: ");
+scanf("%s",&u.pin);
+
 }
-
-
-
-
-
 
 
 int main()
 {
 setlocale(LC_ALL, "Portuguese");
-
+int n;
+char user[20];
+char pin[10];
 //login--------------------------------------------------------------------
-int conta,s;
-char reg1[30];
-char reg2[30];
-char linha[128];
-
-FILE *ficheiro=fopen("reg.txt","a+");
-
-
-system("cls");
-gotoxy(20,2);
-printf("Tens uma CONTA?");
-gotoxy(19,3);
-printf("|1: Sim");
-gotoxy(19,4);
-printf("|2: Não");
-gotoxy(19,5);
-printf("|");
-gotoxy(20,5);
-scanf("%i",&conta);
-
-
-switch(conta)
-{
-
-case 1:
+/*
 system("cls");
 gotoxy(20,2);
 printf(">>LOGIN<<");
 Sleep(500);
-
 gotoxy(20,4);
 printf("Utilizador: ");
 scanf("%s",&user);
 Sleep(300);
-
 gotoxy(20,6);
 printf("Código PIN: ");
 scanf("%s",&pin);
 Sleep(300);
-
-
-if (ficheiro) {
-
-while(fgets(linha, sizeof linha, ficheiro))
+fflush(stdin);
+if(strcmp(user,"Carla")==0 || strcmp(user,"Duarte")==0)
 {
-if(sscanf(linha,"%30s %30s", reg1, reg2) == 2)
-{
-if ((strcmp(user, reg1)==0) && (strcmp(pin, reg2)==0))
-{
-if((strcmp(user, reg1)==0) && (strcmp(pin, reg2)==0))
+if(strcmp(pin,"8006")==0)
 {
 }
 else
 {
- printf("\nPin ou Utilizador - Incorreto\n");
-}
-}
-else
-{
-printf("\nPin ou Utilizador - Incorreto\n");
-system("PAUSE");
-return main();
-}
-}
-}
-fclose(ficheiro);
-}
-
-break;
-
-case 2:
-
 system("cls");
-gotoxy(20,2);
-printf(">>REGISTAR<<");
-Sleep(500);
 gotoxy(20,4);
-printf("Digite o NOME DE UTILIZADOR: ");
-scanf("%s",&reg1);
-fprintf(ficheiro,"%s",reg1);
-fflush(ficheiro);
-gotoxy(20,6);
-printf("Digite o CÓDIGO PIN: ");
-scanf("%s",&reg2);
-fprintf(ficheiro," %s\n",reg2);
-fflush(ficheiro);
-gotoxy(20,8);
-printf("Obrigado!");
-Sleep(600);
-gotoxy(20,10);
+printf("CÓDIGO PIN INCORRETO\n\n");
 system("pause");
 return main();
-break;
-
-
-default:
-printf("ERRO DE NUMERAÇÃO");
-Sleep(500);
 }
-
-
+}
+else
+{
+system("cls");
+gotoxy(20,4);
+printf("UTILIZADOR INEXISTENTE\n\n");
+system("pause");
+return main();
+}
+*/
 
 
 //---------------------------------------------------------------------------------
@@ -172,219 +115,278 @@ Sleep(500);
 getch();
 system("cls");
 
-//--------------------------------------------------------------------------
-
+//logo--------------------------------------------------------------------------
 
 
 
 //linha-esquerda-------------------------------------------------------------------------
-    gotoxy(20, 2);
+    gotoxy(10, 2);
     printf("|");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 3);
+    gotoxy(10, 3);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 4);
+    gotoxy(10, 4);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 5);
+    gotoxy(10, 5);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 6);
+    gotoxy(10, 6);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 7);
+    gotoxy(10, 7);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 8);
+    gotoxy(10, 8);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 9);
+    gotoxy(10, 9);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 10);
+    gotoxy(10, 10);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 11);
+    gotoxy(10, 11);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 12);
+    gotoxy(10, 12);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 13);
+    gotoxy(10, 13);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 14);
+    gotoxy(10, 14);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 15);
+    gotoxy(10, 15);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 16);
+    gotoxy(10, 16);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 17);
+    gotoxy(10, 17);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-        gotoxy(20, 18);
+        gotoxy(10, 18);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 19);
+    gotoxy(10, 19);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 20);
+    gotoxy(10, 20);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 21);
+    gotoxy(10, 21);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 22);
+    gotoxy(10, 22);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(20, 22);
-    printf("||");
-    Sleep(50);
-
-    gotoxy(20, 23);
+    gotoxy(10, 23);
     printf("|");
-    Sleep(50);
+    Sleep(30);
+
+
 
 //linha-direita-------------------------------------------------------------------------
 
-    gotoxy(66, 2);
-    printf("|");
-    Sleep(50);
+    gotoxy(80, 2);
+    printf(" |");
+    Sleep(30);
 
-    gotoxy(65, 3);
+    gotoxy(80, 3);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 4);
+    gotoxy(80, 4);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 5);
+    gotoxy(80, 5);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 6);
+    gotoxy(80, 6);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 7);
+    gotoxy(80, 7);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 8);
+    gotoxy(80, 8);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 9);
+    gotoxy(80, 9);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 10);
+    gotoxy(80, 10);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 11);
+    gotoxy(80, 11);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 12);
+    gotoxy(80, 12);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 13);
+    gotoxy(80, 13);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 14);
+    gotoxy(80, 14);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 15);
+    gotoxy(80, 15);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 16);
+    gotoxy(80, 16);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 17);
+    gotoxy(80, 17);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 18);
+    gotoxy(80, 18);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 19);
+    gotoxy(80, 19);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 20);
+    gotoxy(80, 20);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 21);
+    gotoxy(80, 21);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(65, 22);
+    gotoxy(80, 22);
     printf("||");
-    Sleep(50);
+    Sleep(30);
 
-    gotoxy(66, 23);
-    printf("|");
-    Sleep(50);
+    gotoxy(80, 23);
+    printf(" |");
+    Sleep(30);
+
+
 
 //linha-cima-------------------------------------------------------------------------
 
-    gotoxy(21, 1);
-    printf("_____________________________________________");
-    Sleep(500);
+    gotoxy(11, 1);
+    printf("______________________________________________________________________");
+    Sleep(300);
 
-    gotoxy(22, 2);
-    printf("___________________________________________");
-    Sleep(500);
+    gotoxy(12, 2);
+    printf("____________________________________________________________________");
+    Sleep(300);
 
-//linha-baixo-------------------------------------------------------------------------
+//linhaprintf("")-baixo-------------------------------------------------------------------------
 
-    gotoxy(22, 22);
-    printf("___________________________________________");
-    Sleep(500);
+    gotoxy(12, 22);
+    printf("____________________________________________________________________");
+    Sleep(300);
 
-    gotoxy(21, 23);
-    printf("_____________________________________________");
-    Sleep(500);
+    gotoxy(11, 23);
+    printf("______________________________________________________________________");
+    Sleep(300);
 
-//-------------------------------------------------------------------------
+//instrumentos-------------------------------------------------------------------------
+gotoxy(16, 4);
+printf("1. Instrumentos");
 
-    getch();
+gotoxy(18, 5);
+printf("     _");Sleep(100);
+gotoxy(18, 6);
+printf("    / 7");Sleep(100);
+gotoxy(18, 7);
+printf("   /_(");Sleep(100);
+gotoxy(18, 8);
+printf("   |_|");Sleep(100);
+gotoxy(18, 9);
+printf("   |_|");Sleep(100);
+gotoxy(18, 10);
+printf("   |_|");Sleep(100);
+gotoxy(18, 11);
+printf("   |_| /\\");Sleep(100);
+gotoxy(18, 12);
+printf(" /\\|=|/ /");Sleep(100);
+gotoxy(18, 13);
+printf("  \\|_| /");Sleep(100);
+gotoxy(18, 14);
+printf("  ) _  \\");Sleep(100);
+gotoxy(18, 15);
+printf(" / |_|  \\");Sleep(100);
+gotoxy(18, 16);
+printf("/  -=-o /");Sleep(100);
+gotoxy(18, 17);
+printf("\\  /~\_/");Sleep(100);
+gotoxy(18, 18);
+printf(" \\/");Sleep(100);
+
+//acessorios---------------------------------------------------------------------------------
+
+gotoxy(55, 4);
+printf("2. Outros");
+
+gotoxy(54, 9);
+printf("   ______________");Sleep(100);
+gotoxy(54, 10);
+printf("  |`.____________`.");Sleep(100);
+gotoxy(54, 11);
+printf("  | |_''_o_o__o =.|");Sleep(100);
+gotoxy(54, 12);
+printf("  | | ,--.   ,--. :");Sleep(100);
+gotoxy(54, 13);
+printf("  | |( () ) ( () )|");Sleep(100);
+gotoxy(54, 14);
+printf("  `.|_`-_'___`-_'_|");Sleep(100);
+
+gotoxy(35, 20);
+printf("Digite o Nº: ");
+scanf("%i",&n);
+
+
+
+
+
+gotoxy(16,20);
+system("pause");
 
 
 
     return 0;
 }
+
+
