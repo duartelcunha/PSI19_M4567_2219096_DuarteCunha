@@ -90,7 +90,7 @@ switch(n)
 {
 case 1:
 system("cls");
-instrumentos();
+instrumentosfaturatalao();
 break;
 case 2:
 ;
@@ -465,10 +465,14 @@ printf("______________________________________________________________________")
 
 
 
-void instrumentos()
+void instrumentosfaturatalao()
 {
-int n2;
+int n2,n3,qt,q;
+char cc[10],cvc[10],vldd[10],vldm[10];
+FILE *ficheiro;
 //linha-esquerda----------------------------------------------------------------------
+do {
+system("cls");
 gotoxy(10, 2);
 printf("|");
 gotoxy(10, 3);
@@ -570,17 +574,17 @@ gotoxy(11, 23);
 printf("______________________________________________________________________");
 //------------------------------------------------------------------------------------
 gotoxy(12, 6);
-printf("Guitarra");
+printf("1-Guitarra");
 gotoxy(12, 7);
-printf("Piano");
+printf("2-Piano");
 gotoxy(12, 8);
-printf("Violino");
+printf("3-Violino");
 gotoxy(12, 9);
-printf("Flauta");
+printf("4-Flauta");
 gotoxy(12, 10);
-printf("Saxofone");
+printf("5-Saxofone");
 gotoxy(12, 11);
-printf("Tambor");
+printf("6-Tambor");
 gotoxy(12, 12);
 printf("Digite o Nº: ");
 scanf("%i",&n2);
@@ -612,7 +616,7 @@ printf("    /   |||   \\");
 gotoxy(8, 12);
 printf("   /    |||    \\");
 gotoxy(8, 13);
-printf("   |     |||   |");
+printf("  |    |||     |");
 gotoxy(8, 14);
 printf("   \\   (|||)  /");
 gotoxy(8, 15);
@@ -631,10 +635,38 @@ gotoxy(8, 21);
 printf("   '.         .'");
 gotoxy(8, 22);
 printf("     '-------'");
+
 gotoxy(30, 6);
-printf("Preço: 165$");
+printf("PREÇO: 165$");
+gotoxy(30, 8);
+printf("Indique a QUANTIDADE: ");
+scanf("%i",&qt);
+q=165*qt;
 gotoxy(30, 10);
-printf("Deseja adicionar ao carrinho?");
+printf("Deseja ADICIONAR mais algum INSTRUMENTO ao CARRINHO? 1:Sim | 2:Não");
+scanf("%i",&n3);
+}while(n3==1);
+{
+system("cls");
+ficheiro = fopen("fatura.txt", "a+" );
+printf("CHECKOUT\n");
+printf("CARTÃO DE CRÉDITO: ");
+scanf("%s",&cc);
+printf("\nCVC: ");
+scanf("%s",&cvc);
+printf("\nValidade (DIA):  ");
+scanf("%s",&vldd);
+printf("\nValidade (MÊS):  ");
+scanf("%s",&vldm);
+fprintf(ficheiro, "FATURA\n");
+fprintf(ficheiro, "CARTÃO DE CRÉDITO: %s\n",cc);
+fprintf(ficheiro, "CVC: %s\n",cvc);
+fprintf(ficheiro, "VALIDADE: %s/",vldd);
+fprintf(ficheiro, "%s\n",vldm);
+fprintf(ficheiro, "PAGO: %i$",q);
+fclose(ficheiro);
+}
+
 gotoxy(8, 27);
 system("pause");
 }
