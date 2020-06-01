@@ -5,6 +5,12 @@
 #include <conio.h>
 #include <locale.h>
 #include <time.h>
+#define a 17
+#define b 4
+#define c 3
+#define d 3
+
+
 
 struct utilizador
 {
@@ -12,6 +18,21 @@ struct utilizador
  int pin;
 };
 
+struct fatura
+{
+char cc[17];
+char cvc[4];
+char vldd[3];
+char vldm[3];
+};
+
+struct qtd
+{
+int n2,n3,n4,qt1,qt2,qt3,qt4,qt5,qt6,q1,q2,q3,q4,q5,q6,qtotal;
+};
+
+struct qtd q;
+struct fatura f;
 struct utilizador p;
 
 void login()
@@ -19,17 +40,23 @@ void login()
 textcolor(WHITE);
 system("cls");
 gotoxy(20,2);
+textcolor(GREEN+BLINK);
 printf(">>LOGIN<<");
 Sleep(500);
 gotoxy(20,4);
+textcolor(YELLOW+BLINK);
 printf("Utilizador: ");
+textcolor(WHITE);
 gets(p.user);
 Sleep(300);
 gotoxy(20,6);
+textcolor(YELLOW+BLINK);
 printf("Código PIN: ");
+textcolor(WHITE);
 scanf("%i",&p.pin);
 Sleep(300);
 fflush(stdin);
+textcolor(WHITE);
 if(strcmp(p.user,"Carla")==0 || strcmp(p.user,"Duarte")==0)
 {
 if(p.pin==8006 || p.pin==123)
@@ -38,7 +65,7 @@ system("cls");
 gotoxy(20,4);
 textcolor(GREEN);
 printf("LOGIN EFETUADO COM SUCESSO");
-Sleep(900);
+Sleep(1000);
 //acesso
 }
 else
@@ -78,9 +105,9 @@ system("cls");
 //------------------------------------------------------------------------------------
 bemvindo();
 gotoxy(24, 4);
-textcolor(GREEN);
+textcolor(WHITE);
 printf(" %s",p.user);
-Sleep(900);
+Sleep(1000);
 //menu--------------------------------------------------------------------------------
 menu();
 gotoxy(56, 20);
@@ -92,7 +119,7 @@ switch(n)
 {
 case 1:
 system("cls");
-instrumentosfaturatalao();
+instrumentos();
 break;
 case 2:
 ;
@@ -106,9 +133,9 @@ gotoxy(15, 4);
 textcolor(YELLOW);
 printf("ERRO DE NUMERAÇÃO\n");
 Sleep(900);
+textcolor(WHITE);
 system("pause");
 }
-
 return 0;
 }
 
@@ -116,7 +143,7 @@ return 0;
 void bemvindo()
 {
 //bem-vindo-------------------------------------------------------------------------
-textcolor(WHITE);
+textcolor(GREEN);
 gotoxy(15, 4);
 printf("B");
 Sleep(100);
@@ -143,6 +170,7 @@ Sleep(100);
 gotoxy(23, 4);
 printf("o");
 Sleep(100);
+textcolor(WHITE);
 }
 
 
@@ -153,21 +181,19 @@ system("cls");
 textcolor(WHITE);
 //logo------------------------------------------------------------------------
 lojatexto();
+logo();
 layoutsec();
 //art-------------------------------------------------------------------------
-gotoxy(16, 6);
+gotoxy(16, 7);
 printf("1. Instrumentos");
-gotoxy(18, 7);
+gotoxy(18, 8);
 printf("     _");
 Sleep(70);
-gotoxy(18, 8);
+gotoxy(18, 9);
 printf("    / 7");
 Sleep(70);
-gotoxy(18, 9);
-printf("   /_(");
-Sleep(70);
 gotoxy(18, 10);
-printf("   |_|");
+printf("   /_(");
 Sleep(70);
 gotoxy(18, 11);
 printf("   |_|");
@@ -176,48 +202,51 @@ gotoxy(18, 12);
 printf("   |_|");
 Sleep(70);
 gotoxy(18, 13);
-printf("   |_| /\\");
+printf("   |_|");
 Sleep(70);
 gotoxy(18, 14);
-printf(" /\\|=|/ /");
+printf("   |_| /\\");
 Sleep(70);
 gotoxy(18, 15);
-printf("  \\|_| /");
+printf(" /\\|=|/ /");
 Sleep(70);
 gotoxy(18, 16);
-printf("  ) _  \\");
+printf("  \\|_| /");
 Sleep(70);
 gotoxy(18, 17);
-printf(" / |_|  \\");
+printf("  ) _  \\");
 Sleep(70);
 gotoxy(18, 18);
-printf("/  -=-o /");
+printf(" / |_|  \\");
 Sleep(70);
 gotoxy(18, 19);
-printf("\\  /~\_/");
+printf("/  -=-o /");
 Sleep(70);
 gotoxy(18, 20);
+printf("\\  /~\\_/");
+Sleep(70);
+gotoxy(18, 21);
 printf(" \\/");
 Sleep(70);
 //acessorios---------------------------------------------------------------------------------
-gotoxy(55, 6);
+gotoxy(56, 7);
 printf("2. Outros");
-gotoxy(53, 10);
+gotoxy(55, 10);
 printf("   ______________");
 Sleep(70);
-gotoxy(53, 11);
+gotoxy(55, 11);
 printf("  |`.____________`.");
 Sleep(70);
-gotoxy(53, 12);
+gotoxy(55, 12);
 printf("  | |_''_o_o__o =.|");
 Sleep(70);
-gotoxy(53, 13);
+gotoxy(55, 13);
 printf("  | | ,--.   ,--. :");
 Sleep(70);
-gotoxy(53, 14);
+gotoxy(55, 14);
 printf("  | |( () ) ( () )|");
 Sleep(70);
-gotoxy(53, 15);
+gotoxy(55, 15);
 printf("  `.|_`-_'___`-_'_|");
 Sleep(70);
 }
@@ -226,139 +255,167 @@ Sleep(70);
 
 void mainlayout()
 {
- //logo------------------------------------------------------------------------
-lojatextosec();
+//logo------------------------------------------------------------------------
+lojatexto();
 //linha-esquerda----------------------------------------------------------------------
+gotoxy(10,1);
+printf("      ____----");
 gotoxy(10,2);
-printf("|");
+printf("    /");
+Sleep(30);
 gotoxy(10,3);
-printf("|");
+printf("  /");
+Sleep(30);
 gotoxy(10, 4);
 printf("||");
+Sleep(30);
 gotoxy(10, 5);
 printf("||");
+Sleep(30);
 gotoxy(10, 6);
 printf("||");
+Sleep(30);
 gotoxy(10, 7);
 printf("||");
+Sleep(30);
 gotoxy(10, 8);
 printf("||");
+Sleep(30);
 gotoxy(10, 9);
 printf("||");
+Sleep(30);
 gotoxy(10, 10);
 printf("||");
+Sleep(30);
 gotoxy(10, 11);
 printf("||");
+Sleep(30);
 gotoxy(10, 12);
 printf("||");
+Sleep(30);
 gotoxy(10, 13);
 printf("||");
+Sleep(30);
 gotoxy(10, 14);
 printf("||");
+Sleep(30);
 gotoxy(10, 15);
 printf("||");
+Sleep(30);
 gotoxy(10, 16);
 printf("||");
+Sleep(30);
 gotoxy(10, 17);
 printf("||");
+Sleep(30);
 gotoxy(10, 18);
 printf("||");
+Sleep(30);
 gotoxy(10, 19);
 printf("||");
+Sleep(30);
 gotoxy(10, 20);
 printf("||");
+Sleep(30);
 gotoxy(10, 21);
 printf("||");
+Sleep(30);
 gotoxy(10, 22);
 printf("||");
+Sleep(30);
 gotoxy(10, 23);
 printf("|");
+Sleep(30);
 //linha-direita-------------------------------------------------------------------------
-gotoxy(80,2);
-printf(" |");
-gotoxy(80,3);
-printf(" |");
+gotoxy(68,1);
+printf("----____");
+gotoxy(77,2);
+printf("\\");
+Sleep(30);
+gotoxy(79,3);
+printf("\\");
+Sleep(30);
 gotoxy(80, 4);
 printf("||");
+Sleep(30);
 gotoxy(80, 5);
 printf("||");
+Sleep(30);
 gotoxy(80, 6);
 printf("||");
+Sleep(30);
 gotoxy(80, 7);
 printf("||");
+Sleep(30);
 gotoxy(80, 8);
 printf("||");
+Sleep(30);
 gotoxy(80, 9);
 printf("||");
+Sleep(30);
 gotoxy(80, 10);
 printf("||");
+Sleep(30);
 gotoxy(80, 11);
 printf("||");
+Sleep(30);
 gotoxy(80, 12);
 printf("||");
+Sleep(30);
 gotoxy(80, 13);
 printf("||");
+Sleep(30);
 gotoxy(80, 14);
 printf("||");
+Sleep(30);
 gotoxy(80, 15);
 printf("||");
+Sleep(30);
 gotoxy(80, 16);
 printf("||");
+Sleep(30);
 gotoxy(80, 17);
 printf("||");
+Sleep(30);
 gotoxy(80, 18);
 printf("||");
+Sleep(30);
 gotoxy(80, 19);
 printf("||");
+Sleep(30);
 gotoxy(80, 20);
 printf("||");
+Sleep(30);
 gotoxy(80, 21);
 printf("||");
+Sleep(30);
 gotoxy(80, 22);
 printf("||");
+Sleep(30);
 gotoxy(80, 23);
 printf(" |");
+Sleep(30);
 //linha-baixo-------------------------------------------------------------------------
 gotoxy(12, 22);
 printf("____________________________________________________________________");
+Sleep(100);
 gotoxy(11, 23);
 printf("______________________________________________________________________");
+Sleep(100);
 }
 
 
 
 void layoutsec()
 {
-gotoxy(35, 4);
-printf("--_-_-_-_---");
-Sleep(80);
-gotoxy(35, 5);
-printf("   -_-_-_");
-Sleep(80);
-gotoxy(35, 6);
-printf("    -_-_-");
-Sleep(80);
-gotoxy(35, 7);
-printf("     -__-");
-Sleep(80);
-gotoxy(35, 8);
-printf("    _-_");
-Sleep(80);
-gotoxy(35, 9);
-printf("   _-");
-Sleep(80);
-gotoxy(35, 10);
-printf("   -_");
-Sleep(80);
-gotoxy(35, 11);
-printf("    _-_");
-Sleep(80);
 //linha-esquerda----------------------------------------------------------------------
+gotoxy(10,1);
+printf("      ____----");
 gotoxy(10,2);
-printf("|");
+printf("    /");
 Sleep(30);
 gotoxy(10,3);
-printf("|");
+printf("  /");
 Sleep(30);
 gotoxy(10, 4);
 printf("||");
@@ -421,11 +478,13 @@ gotoxy(10, 23);
 printf("|");
 Sleep(30);
 //linha-direita-------------------------------------------------------------------------
-gotoxy(80,2);
-printf(" |");
+gotoxy(68,1);
+printf("----____");
+gotoxy(77,2);
+printf("\\");
 Sleep(30);
-gotoxy(80,3);
-printf(" |");
+gotoxy(79,3);
+printf("\\");
 Sleep(30);
 gotoxy(80, 4);
 printf("||");
@@ -498,44 +557,39 @@ Sleep(100);
 
 
 
-void instrumentosfaturatalao()
+void instrumentos()
 {
-int n2,n3,qt1,qt2,qt3,q1,q2,q3,qtotal;
-char cc[10],cvc[4],vldd[3],vldm[3];
-FILE *ficheiro;
-FILE *ficheiro2;
-q1=0;
-q2=0;
-qt1=0;
-qt2=0;
-q3=0;
-qt3=0;
+q.q1=0;
+q.q2=0;
+q.qt1=0;
+q.qt2=0;
+q.q3=0;
+q.qt3=0;
 //linha-esquerda----------------------------------------------------------------------
+menu:
 do {
 system("cls");
 mainlayout();
 //------------------------------------------------------------------------------------
-gotoxy(25, 6);
-printf("1 - Guitarra");
 gotoxy(25, 8);
-printf("2 - Piano");
+printf("1 - Guitarra");
 gotoxy(25, 10);
-printf("3 - Violino");
+printf("2 - Piano");
 gotoxy(25, 12);
-printf("4 - Flauta");
+printf("3 - Violino");
 gotoxy(25, 14);
-printf("5 - Saxofone");
+printf("4 - Flauta");
 gotoxy(25, 16);
-printf("6 - Tambor");
+printf("5 - Saxofone");
 gotoxy(25, 18);
+printf("6 - Tambor");
+gotoxy(25, 20);
 printf("9 - VER CARRINHO DE COMPRAS");
-gotoxy(40, 11);
+gotoxy(44, 11);
 printf("Digite o Nº: ");
-scanf("%i",&n2);
-switch(n2)
+scanf("%i",&q.n2);
+switch(q.n2)
 {
-
-
 
 case 1:
 system("cls");
@@ -560,13 +614,13 @@ printf("        |||");Sleep(60);
 gotoxy(8, 10);
 printf("     ___|||___");Sleep(60);
 gotoxy(8, 11);
-printf("    /   |||    \\");Sleep(60);
+printf("    /   |||   \\");Sleep(60);
 gotoxy(8, 12);
-printf("   /    |||     \\");Sleep(60);
+printf("   /    |||    \\");Sleep(60);
 gotoxy(8, 13);
 printf("  |     |||     |");Sleep(60);
 gotoxy(8, 14);
-printf("   \\   (|||)  /");Sleep(60);
+printf("   \\   (|||)   /");Sleep(60);
 gotoxy(8, 15);
 printf("    |   |||   |");Sleep(60);
 gotoxy(8, 16);
@@ -587,22 +641,35 @@ gotoxy(30, 6);
 printf("PREÇO: 175$");
 gotoxy(30, 8);
 printf("Indique a QUANTIDADE: ");
-scanf("%i",&qt1);
-q1=175*qt1;
-gotoxy(30, 10);
-printf("DESEJA ADICIONAR MAIS AO CARRINHO?");
+scanf("%i",&q.qt1);
+q.q1=175*q.qt1;
 gotoxy(30, 11);
-printf("SIM: Digitar 1 | NÃO: Digitar 2");
-gotoxy(30, 12);
-scanf("%i",&n3);
+printf("DESEJA ADICIONAR MAIS AO CARRINHO?");
+gotoxy(30, 13);
+printf("SIM: 1 || NÃO: 2 | CARRINHO: 3");
+gotoxy(30, 14);
+scanf("%i",&q.n3);
+if(q.n3==3)
+{
+carrinho();
+}
+else if(q.n3==1 || q.n3==2)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(15,5);
+textcolor(YELLOW);
+printf("ERRO DE NUMERAÇÃO");
+Sleep(1000);
+goto menu;
+}
 break;
 
 
-
-
 case 2:
-q2++;
-qt2++;
 system("cls");
 gotoxy(8, 1);
 printf(" _____________________________________");Sleep(60);
@@ -640,22 +707,35 @@ gotoxy(52, 6);
 printf("PREÇO: 860$");
 gotoxy(52, 8);
 printf("Indique a QUANTIDADE: ");
-scanf("%i",&qt2);
-q2=860*qt2;
+scanf("%i",&q.qt2);
+q.q2=860*q.qt2;
 gotoxy(52, 10);
-printf("DESEJA ADICIONAR MAIS AO CARRINHO?");
+printf("DESEJA ADICIONAR OUTRO INSTRUMENTO?");
 gotoxy(52, 11);
-printf("SIM: Digitar 1 | NÃO: Digitar 2");
-gotoxy(52, 12);
-scanf("%i",&n3);
+printf("SIM: 1 || NÃO: 2 | CARRINHO: 3");
+gotoxy(30, 14);
+scanf("%i",&q.n3);
+if(q.n3==3)
+{
+carrinho();
+}
+else if(q.n3==1 || q.n3==2)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(15,5);
+textcolor(YELLOW);
+printf("ERRO DE NUMERAÇÃO");
+Sleep(1000);
+goto menu;
+}
 break;
 
 
-
-
 case 3:
-q3++;
-qt3++;
 system("cls");
 gotoxy(8, 1);
 printf("             ,;,");Sleep(60);
@@ -701,41 +781,124 @@ gotoxy(35, 6);
 printf("PREÇO: 645$");
 gotoxy(35, 8);
 printf("Indique a QUANTIDADE: ");
-scanf("%i",&qt1);
-q3=645*qt3;
+scanf("%i",&q.qt3);
+q.q3=645*q.qt3;
 gotoxy(35, 10);
 printf("DESEJA ADICIONAR MAIS AO CARRINHO?");
 gotoxy(35, 11);
-printf("SIM: Digitar 1 | NÃO: Digitar 2");
-gotoxy(35, 12);
-scanf("%i",&n3);
+printf("SIM: 1 || NÃO: 2 | CARRINHO: 3");
+gotoxy(30, 14);
+scanf("%i",&q.n3);
+if(q.n3==3)
+{
+carrinho();
+}
+else if(q.n3==1 || q.n3==2)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(15,5);
+textcolor(YELLOW);
+printf("ERRO DE NUMERAÇÃO");
+Sleep(1000);
+goto menu;
+}
 break;
 
-
-
-
-
-
-
 }
-}while(n3==1);
+}while(q.n3==1 || q.n4==2);
 {
-q1=175*qt1;
-q2=860*qt2;
-q3=645*qt3;
-qtotal=q1+q2+q3;
+fatura();
+}
+}
+
+
+
+void carrinho()
+{
+system("cls");
+mainlayout();
+gotoxy(30,8);
+printf("CARRINHO DE COMPRAS");
+gotoxy(30,10);
+printf("QTD:");
+gotoxy(30,12);
+printf("Instrumentos:");
+gotoxy(30,13);
+printf("Guitarra: %i",q.qt1);
+gotoxy(30,14);
+printf("Piano: %i",q.qt2);
+gotoxy(30,15);
+printf("Violino: %i",q.qt3);
+gotoxy(30,17);
+printf("Deseja CONTINUAR com a COMPRA?");
+gotoxy(30,18);
+printf("SIM: Digitar 1 || NÃO: Digitar 2");
+gotoxy(30,18);
+scanf("%i",&q.n4);
+}
+
+
+
+void fatura()
+{
+FILE *ficheiro;
+FILE *ficheiro2;
+//preços--------------------------------------------------------
+q.q1=175*q.qt1;
+q.q2=860*q.qt2;
+q.q3=645*q.qt3;
+q.qtotal=q.q1+q.q2+q.q3;
+//cartão--------------------------------------------------------
 system("cls");
 ficheiro = fopen("1 Fatura.txt", "w+" );
 ficheiro2 = fopen("2 Talão de Troca.txt", "w+" );
+checkout:
+system("cls");
 printf("CHECKOUT\n");
+fflush(stdin);
 printf("CARTÃO DE CRÉDITO: ");
-scanf("%s",&cc);
+fgets(f.cc, a, stdin);
+fflush(stdin);
 printf("\nCVC: ");
-scanf("%s",&cvc);
+fgets(f.cvc, b, stdin);
+fflush(stdin);
 printf("\nValidade (DIA):  ");
-scanf("%s",&vldd);
+fgets(f.vldd, c, stdin);
+if(f.vldd<=31)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(10,5);
+textcolor(YELLOW);
+printf("INTRODUZA UM DIA VÁLIDO");
+Sleep(1000);
+textcolor(WHITE);
+goto checkout;
+}
+fflush(stdin);
 printf("\nValidade (MÊS):  ");
-scanf("%s",&vldm);
+fgets(f.vldm, d, stdin);
+if(f.vldd<=12)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(10,5);
+textcolor(YELLOW);
+printf("INTRODUZA UM MÊS VÁLIDO");
+Sleep(1000);
+textcolor(WHITE);
+goto checkout;
+}
 //ficheiros------------------------------------------------------
 SYSTEMTIME t;
 GetLocalTime(&t);
@@ -744,26 +907,23 @@ fprintf(ficheiro,"COMPRA FEITA POR: %s\n",p.user);
 fprintf(ficheiro,"DATA: %i/%i/%i\n",t.wDay,t.wMonth,t.wYear);
 fprintf(ficheiro,"------------------------\n");
 fprintf(ficheiro,"QTD:\n");
-fprintf(ficheiro,"%i-Guitarra\n%i-Piano\n%i-Violino\n",qt1++,qt2++,qt3++);
+fprintf(ficheiro,"%i - Guitarra\n%i - Piano\n%i - Violino\n",q.qt1,q.qt2,q.qt3);
 fprintf(ficheiro,"------------------------\n");
-fprintf(ficheiro, "CARTÃO DE CRÉDITO: ****%s****\n",cc);
-fprintf(ficheiro, "CVC: ****%s****\n",cvc);
-fprintf(ficheiro, "VALIDADE: ****%s/",vldd);
-fprintf(ficheiro, "%s****\n",vldm);
+fprintf(ficheiro, "CARTÃO DE CRÉDITO: ***%s***\n",f.cc);
+fprintf(ficheiro, "CVC: ***%s***\n",f.cvc);
+fprintf(ficheiro, "VALIDADE: ***%s/",f.vldd);
+fprintf(ficheiro, "%s***\n",f.vldm);
 fprintf(ficheiro,"------------------------\n");
-fprintf(ficheiro, "TOTAL: %i$",qtotal);
+fprintf(ficheiro, "TOTAL: %i$",q.qtotal);
 fclose(ficheiro);
 fprintf(ficheiro2,"--TALÃO DE TROCA--\n");
 fprintf(ficheiro2,"COMPRA FEITA POR: %s\n",p.user);
 fprintf(ficheiro2,"DATA DA COMPRA: %i/%i/%i\n",t.wDay,t.wMonth,t.wYear);
 fprintf(ficheiro2,"PODE REALIZAR A TROCA OU DEVOLUÇÃO ATÉ: %i/%i/%i",t.wDay+7,t.wMonth,t.wYear);
 fclose(ficheiro2);
-}
-SYSTEMTIME t;
-GetLocalTime(&t);
 FILE *ficheiro3;
 ficheiro3=fopen("3 GANHOS.txt","a+");
-fprintf(ficheiro3,"TOTAL=%i no DIA: %i às %i:%i - Compra de: %s\n",qtotal,t.wDay,t.wHour,t.wMinute,p.user);
+fprintf(ficheiro3,"TOTAL = %i$ no DIA: %i às %i:%i - Compra feita por: %s\n",q.qtotal,t.wDay,t.wHour,t.wMinute,p.user);
 gotoxy(8, 27);
 system("pause");
 return 0;
@@ -825,133 +985,46 @@ return 0;
 
 void lojatexto()
 {
-gotoxy(5, 1);
-printf("               ____  ____  _______    _______ _     _ _______ _____ _     _");
-Sleep(100);
-gotoxy(5, 2);
-printf("       |      |    |   |   |_____|    |  |  | |     | |______   |   |____/ ");
-Sleep(100);
-gotoxy(5, 3);
-printf("       |____  |____| __|   |     |    |  |  | |_____| ______| __|__ |    \\_ ");
-Sleep(100);
+gotoxy(23,1);
+printf("   __       _                          _ _");Sleep(100);
+gotoxy(23,2);
+printf("  / /  ___ (_) __ _    /\\/\\  _   _ ___(_) | __");Sleep(100);
+gotoxy(23,3);
+printf(" / /  / _ \\| |/ _` |  /    \\| | | / __| | |/ /");Sleep(100);
+gotoxy(23,4);
+printf("/ /__| (_) | | (_| | / /\\/\\ \\ |_| \\__ \\ |   <");Sleep(100);
+gotoxy(23,5);
+printf("\\____/\\___// |\\__,_| \\/    \\/\\__,_|___/_|_|\\_\\""");Sleep(100);
+gotoxy(23,6);
+printf("         |__/");Sleep(100);
 }
 
 
 
-void lojatextosec()
+void logo()
 {
-gotoxy(5, 1);
-printf("               ____  ____  _______    _______ _     _ _______ _____ _     _");
-gotoxy(5, 2);
-printf("       |      |    |   |   |_____|    |  |  | |     | |______   |   |____/ ");
-gotoxy(5, 3);
-printf("       |____  |____| __|   |     |    |  |  | |_____| ______| __|__ |    \\_ ");
+gotoxy(41, 6);
+printf("--_-_-_-_---");
+Sleep(80);
+gotoxy(41, 7);
+printf("   -_-_-_");
+Sleep(80);
+gotoxy(41, 8);
+printf("    -_-_-");
+Sleep(80);
+gotoxy(41, 9);
+printf("     -__-");
+Sleep(80);
+gotoxy(41, 10);
+printf("    _-_");
+Sleep(80);
+gotoxy(41, 11);
+printf("   _-");
+Sleep(80);
+gotoxy(41, 12);
+printf("   -_");
+Sleep(80);
+gotoxy(41, 13);
+printf("     -");
+Sleep(80);
 }
-
-
-
-/* //secundarylayout
-void layout()
-{
-//linha-esquerda----------------------------------------------------------------------
-gotoxy(10, 2);
-printf("|");
-gotoxy(10, 3);
-printf("||");
-gotoxy(10, 4);
-printf("||");
-gotoxy(10, 5);
-printf("||");
-gotoxy(10, 6);
-printf("||");
-gotoxy(10, 7);
-printf("||");
-gotoxy(10, 8);
-printf("||");
-gotoxy(10, 9);
-printf("||");
-gotoxy(10, 10);
-printf("||");
-gotoxy(10, 11);
-printf("||");
-gotoxy(10, 12);
-printf("||");
-gotoxy(10, 13);
-printf("||");
-gotoxy(10, 14);
-printf("||");
-gotoxy(10, 15);
-printf("||");
-gotoxy(10, 16);
-printf("||");
-gotoxy(10, 17);
-printf("||");
-gotoxy(10, 18);
-printf("||");
-gotoxy(10, 19);
-printf("||");
-gotoxy(10, 20);
-printf("||");
-gotoxy(10, 21);
-printf("||");
-gotoxy(10, 22);
-printf("||");
-gotoxy(10, 23);
-printf("|");
-//linha-direita-------------------------------------------------------------------------
-gotoxy(80, 2);
-printf(" |");
-gotoxy(80, 3);
-printf("||");
-gotoxy(80, 4);
-printf("||");
-gotoxy(80, 5);
-printf("||");
-gotoxy(80, 6);
-printf("||");
-gotoxy(80, 7);
-printf("||");
-gotoxy(80, 8);
-printf("||");
-gotoxy(80, 9);
-printf("||");
-gotoxy(80, 10);
-printf("||");
-gotoxy(80, 11);
-printf("||");
-gotoxy(80, 12);
-printf("||");
-gotoxy(80, 13);
-printf("||");
-gotoxy(80, 14);
-printf("||");
-gotoxy(80, 15);
-printf("||");
-gotoxy(80, 16);
-printf("||");
-gotoxy(80, 17);
-printf("||");
-gotoxy(80, 18);
-printf("||");
-gotoxy(80, 19);
-printf("||");
-gotoxy(80, 20);
-printf("||");
-gotoxy(80, 21);
-printf("||");
-gotoxy(80, 22);
-printf("||");
-gotoxy(80, 23);
-printf(" |");
-//linha-cima-------------------------------------------------------------------------
-gotoxy(11, 1);
-printf("______________________________________________________________________");
-gotoxy(12, 2);
-printf("____________________________________________________________________");
-//linha-baixo-------------------------------------------------------------------------
-gotoxy(12, 22);
-printf("____________________________________________________________________");
-gotoxy(11, 23);
-printf("______________________________________________________________________");
-//------------------------------------------------------------------------------------
-}*/
