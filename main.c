@@ -15,14 +15,14 @@ typedef struct
  int pin;
 }utilizador;
 
-struct fatura
+typedef struct
 {
 char cc[7];
 char cvc[3];
 int vldd;
 int vldm;
-char local[20];
-};
+char local[25];
+}checkout;
 
 typedef struct
 {
@@ -38,7 +38,7 @@ int qtotal;
 }qtd;
 
 qtd q;
-struct fatura f;
+checkout f;
 utilizador p;
 
 //sistema login
@@ -2266,15 +2266,15 @@ scanf("       %i",&q.n4);
 
 textocarrinho()
 {
-gotoxy(25,1);
+gotoxy(26,1);
 printf("   ___                _       _");
-gotoxy(25,2);
+gotoxy(26,2);
 printf("  / __\\__ _ _ __ _ __(_)_ __ | |__   ___");
-gotoxy(25,3);
+gotoxy(26,3);
 printf(" / /  / _` | '__| '__| | '_ \\| '_ \\ / _ \\");
-gotoxy(25,4);
+gotoxy(26,4);
 printf("/ /__| (_| | |  | |  | | | | | | | | (_) |");
-gotoxy(25,5);
+gotoxy(26,5);
 printf("\\____/\\__,_|_|  |_|  |_|_| |_|_| |_|\\___/");
 }
 
@@ -2300,28 +2300,34 @@ q.qc=15*q.qtc;
 q.qa=330*q.qta;
 q.qtotal=q.q1+q.q2+q.q3+q.q4+q.q5+q.q6+q.qcs+q.qp+q.qc+q.qa;
 //cartão--------------------------------------------------------
-ficheiro = fopen("1 Fatura.txt", "w+" );
-ficheiro2 = fopen("2 Talão de Troca.txt", "w+" );
+ficheiro = fopen("Fatura.txt", "w+" );
+ficheiro2 = fopen("Talão_de_Troca.txt", "w+" );
 system("cls");
 textofinal();
 comprafinal();
+fflush(stdin);
 gotoxy(35,11);
+printf("Local De Entrega: ");
+gotoxy(53,11);
+gets(f.local);
+fflush(stdin);
+gotoxy(35,13);
 printf("(10) NÚMERO DO CARTÃO: **********");
 fflush(stdin);
-gotoxy(58,11);
+gotoxy(58,13);
 fgets(f.cc,a,stdin);
-gotoxy(35,13);
+gotoxy(35,15);
 printf("(3) CVC: ***");
 fflush(stdin);
-gotoxy(44,13);
+gotoxy(44,15);
 fgets(f.cvc,b,stdin);
 fflush(stdin);
 vld:
 textofinal();
 comprafinal();
-gotoxy(35,15);
+gotoxy(35,17);
 printf("(MÊS) Validade:  ");
-gotoxy(51,15);
+gotoxy(51,17);
 scanf("%i",&f.vldd);
 if(f.vldd<=12)
 {
@@ -2338,9 +2344,9 @@ system("pause");
 system("cls");
 goto vld;
 }
-gotoxy(35,17);
-printf("(ANO) Validade:  ");
-gotoxy(51,17);
+gotoxy(35,19);
+printf("(ANO 20-30) Validade:  ");
+gotoxy(57,19);
 scanf("%i",&f.vldm);
 if(f.vldm<=30 && f.vldm>=20)
 {
@@ -2371,6 +2377,7 @@ fprintf(ficheiro, "%i - Guitarra\n%i - Piano\n%i - Violino\n%i - Flauta\n%i - Sa
 fprintf(ficheiro, "Outros:\n");
 fprintf(ficheiro, "%i - Coluna de Som\n%i - Palheta\n%i - Capo\n%i - Amplificador\n",q.qtcs,q.qtp,q.qtc,q.qta);
 fprintf(ficheiro, "-------------------------------------------------\n");
+fprintf(ficheiro, "LOCAL DE ENTREGA: %s\n",f.local);
 fprintf(ficheiro, "CARTÃO DE CRÉDITO: ***%s***\n",f.cc);
 fprintf(ficheiro, "CVC: ***%s***\n",f.cvc);
 if(f.vldd<=9)
@@ -2382,6 +2389,7 @@ else
 fprintf(ficheiro, "VALIDADE: ***%i/",f.vldd);
 }
 fprintf(ficheiro, "%i***\n",f.vldm);
+
 fprintf(ficheiro, "-------------------------------------------------\n");
 fprintf(ficheiro, "TOTAL: %i$",q.qtotal);
 fclose(ficheiro);
@@ -2391,17 +2399,20 @@ fprintf(ficheiro2,"DATA DA COMPRA: %i/%i/%i\n",t.wDay,t.wMonth,t.wYear);
 fprintf(ficheiro2,"PODE REALIZAR A TROCA OU DEVOLUÇÃO ATÉ: %i/%i/%i",t.wDay+7,t.wMonth,t.wYear);
 fclose(ficheiro2);
 FILE *ficheiro3;
-ficheiro3=fopen("3 GANHOS.txt","a+");
+ficheiro3=fopen("Ganhos.txt","a+");
 fprintf(ficheiro3,"TOTAL = %i$ no DIA: %i às %i:%i - Compra feita por: %s\n",q.qtotal,t.wDay,t.wHour,t.wMinute,p.user);
 textcolor(GREEN);
-gotoxy(76,14);
+gotoxy(76,16);
 printf("COMPRA EFETUADA");
 Sleep(1000);
 textcolor(WHITE);
 gotoxy(1,23);
+fclose(ficheiro3);
+Sleep(1000);
+system("Fatura.txt");
+system("Talão_de_Troca.txt");
 return 0;
 }
-
 
 //sair do programa
 
@@ -2940,6 +2951,12 @@ gotoxy(33, 17);
 printf("|");
 gotoxy(33, 18);
 printf("|");
+gotoxy(33, 19);
+printf("|");
+gotoxy(33, 20);
+printf("|");
+gotoxy(33, 21);
+printf("|");
 //linha-direita-------------------------------------------------------------------------
 gotoxy(65,10);
 printf("       |");
@@ -2950,16 +2967,22 @@ printf("       |");
 gotoxy(65, 13);
 printf("       |");
 gotoxy(65, 14);
-printf("       | >");
+printf("       |");
 gotoxy(65, 15);
 printf("       |");
 gotoxy(65, 16);
-printf("       |");
+printf("       | >");
 gotoxy(65, 17);
 printf("       |");
 gotoxy(65, 18);
 printf("       |");
-gotoxy(34,18);
+gotoxy(65, 19);
+printf("       |");
+gotoxy(65, 20);
+printf("       |");
+gotoxy(65, 21);
+printf("       |");
+gotoxy(34,21);
 printf("______________________________________\n\n\n");
 }
 
