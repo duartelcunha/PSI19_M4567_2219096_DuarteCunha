@@ -5,8 +5,10 @@
 #include <conio.h>
 #include <locale.h>
 #include <time.h>
+#include "layouts.h"
 #define a 11
 #define b 4
+
 
 
 typedef struct
@@ -26,7 +28,7 @@ char local[25];
 
 typedef struct
 {
-int n2,n3,n4,n5,i;
+int nv[10],i;
 //instrumentos
 int qt1,qt2,qt3,qt4,qt5,qt6;
 int q1,q2,q3,q4,q5,q6;
@@ -64,18 +66,68 @@ scanf("%i",&p.pin);
 Sleep(300);
 fflush(stdin);
 textcolor(WHITE);
-if(strcmp(p.user,"Du")==0 || strcmp(p.user,"Duda")==0)
+if(strcmp(p.user,"Duarte")==0 || strcmp(p.user,"Rui")==0)
 {
 if(p.pin==8006 || p.pin==1234)
 {
+textcolor(WHITE);
 gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
 textcolor(GREEN);
+gotoxy(63,10);
 printf("LOGIN EFETUADO COM SUCESSO");
-Sleep(2000);
+Sleep(1000);
 //acesso
 }
 else
 {
+textcolor(WHITE);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
 gotoxy(63,10);
 textcolor(RED);
 printf("CÓDIGO INCORRETO\n\n");
@@ -86,6 +138,31 @@ main();
 }
 else
 {
+textcolor(WHITE);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
 gotoxy(63,10);
 textcolor(RED);
 printf("UTILIZADOR INEXISTENTE\n\n");
@@ -104,7 +181,7 @@ main();
 int main()
 {
 setlocale(LC_ALL, "Portuguese");
-int n;
+
 //------------------------------------------------------------------------------------
 system("cls");
 login();
@@ -124,8 +201,8 @@ gotoxy(68, 20);
 printf("9: Sair");
 gotoxy(31, 20);
 printf("Digite o Nº: ");
-scanf("%i",&n);
-switch(n)
+scanf("%i",&q.nv[1]);
+switch(q.nv[1])
 {
 case 1:
 system("cls");
@@ -152,8 +229,8 @@ gotoxy(42, 20);
 printf("9: Menu Principal");
 gotoxy(42, 13);
 printf("Digite o Nº: ");
-scanf("%i",&q.n2);
-switch(q.n2)
+scanf("%i",&q.nv[2]);
+switch(q.nv[2])
 {
 q.q1=0;
 q.q2=0;
@@ -182,12 +259,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(30, 13);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(30, 14);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -208,9 +286,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -229,17 +312,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -255,7 +341,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -271,7 +357,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -301,12 +387,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(52, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(52, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -327,9 +414,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -348,17 +440,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -374,7 +469,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -390,7 +485,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -420,12 +515,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(35, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(35, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -446,9 +542,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -467,17 +568,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -493,7 +597,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -509,7 +613,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -539,12 +643,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(25, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(25, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -565,9 +670,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -586,17 +696,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -612,7 +725,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -628,7 +741,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -658,12 +771,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(45, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(45, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -684,9 +798,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -705,17 +824,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -731,7 +853,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -747,7 +869,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -777,12 +899,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(55, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(55, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -803,9 +926,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -824,17 +952,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -850,7 +981,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -866,7 +997,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -896,7 +1027,7 @@ system("pause");
 goto instrumentos;
 break;
 }
-}while(q.n3==1);
+}while(q.nv[3]==1);
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -915,17 +1046,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -965,8 +1099,8 @@ gotoxy(42, 20);
 printf("9: Menu Principal");
 gotoxy(42, 11);
 printf("Digite o Nº: ");
-scanf("%i",&q.n2);
-switch(q.n2)
+scanf("%i",&q.nv[2]);
+switch(q.nv[2])
 {
 q.qcs=0;
 q.qtcs=0;
@@ -991,12 +1125,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(54, 9);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(54, 10);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -1017,9 +1152,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1038,17 +1178,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1064,7 +1207,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -1080,7 +1223,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -1110,12 +1253,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(40, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(40, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -1136,9 +1280,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1157,17 +1306,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1183,7 +1335,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -1199,7 +1351,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -1229,12 +1381,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(45, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(45, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -1255,9 +1408,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1276,17 +1434,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1302,7 +1463,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -1318,7 +1479,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -1348,12 +1509,13 @@ printf("DESEJA ADICIONAR MAIS AO CARRINHO");
 gotoxy(35, 11);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
 gotoxy(35, 12);
-scanf("%i",&q.n3);
-if(q.n3==3)
+scanf("%i",&q.nv[3]);
+if(q.nv[3]==3)
 {
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -1374,9 +1536,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1395,17 +1562,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1421,7 +1591,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -1437,7 +1607,7 @@ system("pause");
 goto menu;
 }
 }
-else if(q.n3==1 || q.n3==2)
+else if(q.nv[3]==1 || q.nv[3]==2)
 {
 //continua
 }
@@ -1466,7 +1636,7 @@ case 9:
 goto menu;
 break;
 }
-}while(q.n3==1);
+}while(q.nv[3]==1);
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1485,17 +1655,20 @@ else
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1521,8 +1694,9 @@ break;
 case 8:
 carrinho:
 carrinho();
-if(q.n4==3)
+if(q.nv[4]==3)
 {
+system("cls");
 q.q1=0;
 q.q2=0;
 q.qt1=0;
@@ -1543,9 +1717,14 @@ q.qc=0;
 q.qtc=0;
 q.qa=0;
 q.qta=0;
+textcolor(GREEN);
+gotoxy(15,3);
+printf("CARRINHO APAGADO");
+Sleep(1500);
+textcolor(WHITE);
 goto menu;
 }
-else if(q.n4==1)
+else if(q.nv[4]==1)
 {
 q.i=q.qt1+q.qt2+q.qt3+q.qt4+q.qt5+q.qt6+q.qtcs+q.qtp+q.qtc+q.qta;
 system("cls");
@@ -1557,24 +1736,27 @@ textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
 Sleep(1800);
-goto outros;
+goto menu;
 }
 else
 {
 //continua
 }
 gotoxy(8,3);
-printf("DESEJA PROCEDER COM A COMPRA DE %i ITENS",q.i);
+printf("DESEJA PROCEDER COM A COMPRA DE:");
+textcolor(YELLOW);
+printf("%i ITENS",q.i);
+textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
 gotoxy(8,5);
-scanf("%i",&q.n5);
-if(q.n5==1)
+scanf("%i",&q.nv[5]);
+if(q.nv[5]==1)
 {
 fatura();
 return 0;
 }
-else if(q.n5==2)
+else if(q.nv[5]==2)
 {
 goto menu;
 }
@@ -1590,7 +1772,7 @@ system("pause");
 goto carrinho;
 }
 }
-else if(q.n4==2)
+else if(q.nv[4]==2)
 {
 goto menu;
 }
@@ -1733,493 +1915,6 @@ Sleep(600);
 }
 
 
-//titulo do 2º menu
-
-textomenu2()
-{
-gotoxy(28,1);
-printf("  /\\/\\   ___ _ __  _   _");
-gotoxy(28,2);
-printf(" /    \\ / _ \\ '_ \\| | | |");
-gotoxy(28,3);
-printf("/ /\\/\\ \\  __/ | | | |_| |");
-gotoxy(28,4);
-printf("\\/    \\/\\___|_| |_|\\__,_|");
-}
-
-
-//layout do 2º menu
-
-layoutmenu2()
-{
-//linha-esquerda----------------------------------------------------------------------
-gotoxy(24,1);
-printf("__---");
-gotoxy(20,2);
-printf("   /");
-gotoxy(20,3);
-printf("  /");
-gotoxy(20, 4);
-printf("||");
-gotoxy(20, 5);
-printf("||");
-gotoxy(20, 6);
-printf("||");
-gotoxy(20, 7);
-printf("||");
-gotoxy(20, 8);
-printf("||");
-gotoxy(20, 9);
-printf("||");
-gotoxy(20, 10);
-printf("||");
-gotoxy(20, 11);
-printf("||");
-gotoxy(20, 12);
-printf("||");
-gotoxy(20, 13);
-printf("||");
-gotoxy(20, 14);
-printf("||");
-gotoxy(20, 15);
-printf("||");
-gotoxy(20, 16);
-printf("||");
-gotoxy(20, 17);
-printf("||");
-gotoxy(20, 18);
-printf("||");
-gotoxy(20, 19);
-printf("||");
-gotoxy(20, 20);
-printf("||");
-gotoxy(20, 21);
-printf("||");
-gotoxy(20, 22);
-printf("||");
-gotoxy(20, 23);
-printf("|");
-//linha-direita-------------------------------------------------------------------------
-gotoxy(53,1);
-printf("---__");
-gotoxy(58,2);
-printf("\\");
-gotoxy(59,3);
-printf("\\");
-gotoxy(60, 4);
-printf("||");
-gotoxy(60, 5);
-printf("||");
-gotoxy(60, 6);
-printf("||");
-gotoxy(60, 7);
-printf("||");
-gotoxy(60, 8);
-printf("||");
-gotoxy(60, 9);
-printf("||");
-gotoxy(60, 10);
-printf("||");
-gotoxy(60, 11);
-printf("||");
-gotoxy(60, 12);
-printf("||");
-gotoxy(60, 13);
-printf("||");
-gotoxy(60, 14);
-printf("||");
-gotoxy(60, 15);
-printf("||");
-gotoxy(60, 16);
-printf("||");
-gotoxy(60, 17);
-printf("||");
-gotoxy(60, 18);
-printf("||");
-gotoxy(60, 19);
-printf("||");
-gotoxy(60, 20);
-printf("||");
-gotoxy(60, 21);
-printf("||");
-gotoxy(60, 22);
-printf("||");
-gotoxy(60, 23);
-printf(" |");
-//linha-baixo-------------------------------------------------------------------------
-gotoxy(22, 22);
-printf("______________________________________");
-gotoxy(21, 23);
-printf("________________________________________");
-}
-
-
-//layout principal
-
-mainlayout()
-{
-//linhas-------------------------------------------------------------------------
-gotoxy(70,1);
-printf("---____");
-Sleep(20);
-gotoxy(15,1);
-printf("____---");
-Sleep(20);
-gotoxy(77,2);
-printf("\\");
-Sleep(20);
-gotoxy(10,2);
-printf("    /");
-Sleep(20);
-gotoxy(79,3);
-printf("\\");
-Sleep(20);
-gotoxy(10,3);
-printf("  /");
-Sleep(20);
-gotoxy(80, 4);
-printf("||");
-Sleep(20);
-gotoxy(10, 4);
-printf("||");
-Sleep(20);
-gotoxy(80, 5);
-printf("||");
-Sleep(20);
-gotoxy(10, 5);
-printf("||");
-Sleep(20);
-gotoxy(80, 6);
-printf("||");
-Sleep(20);
-gotoxy(10, 6);
-printf("||");
-Sleep(20);
-gotoxy(80, 7);
-printf("||");
-Sleep(20);
-gotoxy(10, 7);
-printf("||");
-Sleep(20);
-gotoxy(80, 8);
-printf("||");
-Sleep(20);
-gotoxy(10, 8);
-printf("||");
-Sleep(20);
-gotoxy(80, 9);
-printf("||");
-Sleep(20);
-gotoxy(10, 9);
-printf("||");
-Sleep(20);
-gotoxy(80, 10);
-printf("||");
-Sleep(20);
-gotoxy(10, 10);
-printf("||");
-Sleep(20);
-gotoxy(80, 11);
-printf("||");
-Sleep(20);
-gotoxy(10, 11);
-printf("||");
-Sleep(20);
-gotoxy(80, 12);
-printf("||");
-Sleep(20);
-gotoxy(10, 12);
-printf("||");
-Sleep(20);
-gotoxy(80, 13);
-printf("||");
-Sleep(20);
-gotoxy(10, 13);
-printf("||");
-Sleep(20);
-gotoxy(80, 14);
-printf("||");
-Sleep(20);
-gotoxy(10, 14);
-printf("||");
-Sleep(20);
-gotoxy(80, 15);
-printf("||");
-Sleep(20);
-gotoxy(10, 15);
-printf("||");
-Sleep(20);
-gotoxy(80, 16);
-printf("||");
-Sleep(20);
-gotoxy(10, 16);
-printf("||");
-Sleep(20);
-gotoxy(80, 17);
-printf("||");
-Sleep(20);
-gotoxy(10, 17);
-printf("||");
-Sleep(20);
-gotoxy(80, 18);
-printf("||");
-Sleep(20);
-gotoxy(10, 18);
-printf("||");
-Sleep(20);
-gotoxy(80, 19);
-printf("||");
-Sleep(20);
-gotoxy(10, 19);
-printf("||");
-Sleep(20);
-gotoxy(80, 20);
-printf("||");
-Sleep(20);
-gotoxy(10, 20);
-printf("||");
-Sleep(20);
-gotoxy(80, 21);
-printf("||");
-Sleep(20);
-gotoxy(10, 21);
-printf("||");
-Sleep(20);
-gotoxy(80, 22);
-printf("||");
-Sleep(20);
-gotoxy(10, 22);
-printf("||");
-Sleep(20);
-gotoxy(80, 23);
-printf(" |");
-Sleep(20);
-gotoxy(10, 23);
-printf("|");
-Sleep(20);
-//linha-baixo-------------------------------------------------------------------------
-gotoxy(12, 22);
-printf("____________________________________________________________________");
-Sleep(80);
-gotoxy(11, 23);
-printf("______________________________________________________________________");
-Sleep(80);
-}
-
-
-//layout secundário
-
-layoutsec()
-{
-//linha-esquerda----------------------------------------------------------------------
-gotoxy(15,1);
-printf("____--------------");
-gotoxy(10,2);
-printf("    /");
-gotoxy(10,3);
-printf("  /");
-gotoxy(10, 4);
-printf("||");
-gotoxy(10, 5);
-printf("||");
-gotoxy(10, 6);
-printf("||");
-gotoxy(10, 7);
-printf("||");
-gotoxy(10, 8);
-printf("||");
-gotoxy(10, 9);
-printf("||");
-gotoxy(10, 10);
-printf("||");
-gotoxy(10, 11);
-printf("||");
-gotoxy(10, 12);
-printf("||");
-gotoxy(10, 13);
-printf("||");
-gotoxy(10, 14);
-printf("||");
-gotoxy(10, 15);
-printf("||");
-gotoxy(10, 16);
-printf("||");
-gotoxy(10, 17);
-printf("||");
-gotoxy(10, 18);
-printf("||");
-gotoxy(10, 19);
-printf("||");
-gotoxy(10, 20);
-printf("||");
-gotoxy(10, 21);
-printf("||");
-gotoxy(10, 22);
-printf("||");
-gotoxy(10, 23);
-printf("|");
-//linha-direita-------------------------------------------------------------------------
-gotoxy(59,1);
-printf("--------------____");
-gotoxy(77,2);
-printf("\\");
-gotoxy(79,3);
-printf("\\");
-gotoxy(80, 4);
-printf("||");
-gotoxy(80, 5);
-printf("||");
-gotoxy(80, 6);
-printf("||");
-gotoxy(80, 7);
-printf("||");
-gotoxy(80, 8);
-printf("||");
-gotoxy(80, 9);
-printf("||");
-gotoxy(80, 10);
-printf("||");
-gotoxy(80, 11);
-printf("||");
-gotoxy(80, 12);
-printf("||");
-gotoxy(80, 13);
-printf("||");
-gotoxy(80, 14);
-printf("||");
-gotoxy(80, 15);
-printf("||");
-gotoxy(80, 16);
-printf("||");
-gotoxy(80, 17);
-printf("||");
-gotoxy(80, 18);
-printf("||");
-gotoxy(80, 19);
-printf("||");
-gotoxy(80, 20);
-printf("||");
-gotoxy(80, 21);
-printf("||");
-gotoxy(80, 22);
-printf("||");
-gotoxy(80, 23);
-printf(" |");
-//linha-baixo-------------------------------------------------------------------------
-gotoxy(12, 22);
-printf("____________________________________________________________________");
-gotoxy(11, 23);
-printf("______________________________________________________________________");
-}
-
-
-//layout do carrinho de compras
-
-void layoutcarrinho()
-{
-//linha-esquerda----------------------------------------------------------------------
-gotoxy(17,1);
-printf("____------");
-gotoxy(10,2);
-printf("    /");
-gotoxy(10,3);
-printf("  /");
-gotoxy(10, 4);
-printf("||");
-gotoxy(10, 5);
-printf("||");
-gotoxy(10, 6);
-printf("||");
-gotoxy(10, 7);
-printf("||");
-gotoxy(10, 8);
-printf("||");
-gotoxy(10, 9);
-printf("||");
-gotoxy(10, 10);
-printf("||");
-gotoxy(10, 11);
-printf("||");
-gotoxy(10, 12);
-printf("||");
-gotoxy(10, 13);
-printf("||");
-gotoxy(10, 14);
-printf("||");
-gotoxy(10, 15);
-printf("||");
-gotoxy(10, 16);
-printf("||");
-gotoxy(10, 17);
-printf("||");
-gotoxy(10, 18);
-printf("||");
-gotoxy(10, 19);
-printf("||");
-gotoxy(10, 20);
-printf("||");
-gotoxy(10, 21);
-printf("||");
-gotoxy(10, 22);
-printf("||");
-gotoxy(10, 23);
-printf("|");
-//linha-direita-------------------------------------------------------------------------
-gotoxy(65,1);
-printf("------____");
-gotoxy(77,2);
-printf("\\");
-gotoxy(79,3);
-printf("\\");
-gotoxy(80, 4);
-printf("||");
-gotoxy(80, 5);
-printf("||");
-gotoxy(80, 6);
-printf("||");
-gotoxy(80, 7);
-printf("||");
-gotoxy(80, 8);
-printf("||");
-gotoxy(80, 9);
-printf("||");
-gotoxy(80, 10);
-printf("||");
-gotoxy(80, 11);
-printf("||");
-gotoxy(80, 12);
-printf("||");
-gotoxy(80, 13);
-printf("||");
-gotoxy(80, 14);
-printf("||");
-gotoxy(80, 15);
-printf("||");
-gotoxy(80, 16);
-printf("||");
-gotoxy(80, 17);
-printf("||");
-gotoxy(80, 18);
-printf("||");
-gotoxy(80, 19);
-printf("||");
-gotoxy(80, 20);
-printf("||");
-gotoxy(80, 21);
-printf("||");
-gotoxy(80, 22);
-printf("||");
-gotoxy(80, 23);
-printf(" |");
-//linha-baixo-------------------------------------------------------------------------
-gotoxy(12, 22);
-printf("____________________________________________________________________");
-
-gotoxy(11, 23);
-printf("______________________________________________________________________");
-}
-
-
 //carrinho de compras
 
 void carrinho()
@@ -2258,24 +1953,7 @@ printf("Deseja FINALIZAR a COMPRA?");
 gotoxy(26,19);
 printf("SIM: 1 | NÃO: 2 | 3: Apagar Carrinho");
 gotoxy(26,20);
-scanf("       %i",&q.n4);
-}
-
-
-//titulo do carrinho de compras
-
-textocarrinho()
-{
-gotoxy(26,1);
-printf("   ___                _       _");
-gotoxy(26,2);
-printf("  / __\\__ _ _ __ _ __(_)_ __ | |__   ___");
-gotoxy(26,3);
-printf(" / /  / _` | '__| '__| | '_ \\| '_ \\ / _ \\");
-gotoxy(26,4);
-printf("/ /__| (_| | |  | |  | | | | | | | | (_) |");
-gotoxy(26,5);
-printf("\\____/\\__,_|_|  |_|  |_|_| |_|_| |_|\\___/");
+scanf("       %i",&q.nv[4]);
 }
 
 
@@ -2414,6 +2092,7 @@ system("Talão_de_Troca.txt");
 return 0;
 }
 
+
 //sair do programa
 
 saida()
@@ -2466,7 +2145,64 @@ textcolor(WHITE);
 return 0;
 }
 
-//titulo da loja
+
+textofinal()
+{
+gotoxy(18,2);
+printf("   ___ _                ___          ___");gotoxy(18,3);
+printf("  / __(_)_ __ ___      /   \\__ _    / __\\___  _ __ ___  _ __  _ __ __ _");gotoxy(18,4);
+printf(" / _\\ | | '_ ` _ \\    / /\\ / _` |  / /  / _ \\| '_ ` _ \\| '_ \\| '__/ _` |");gotoxy(18,5);
+printf("/ /   | | | | | | |  / /_// (_| | / /__| (_) | | | | | | |_) | | | (_| |");gotoxy(18,6);
+printf("\\/    |_|_| |_| |_| /___,' \\__,_| \\____/\\___/|_| |_| |_| .__/|_|  \\__,_|");gotoxy(18,7);
+printf("                                                       |_|");
+}
+
+
+textocarrinho()
+{
+gotoxy(26,1);
+printf("   ___                _       _");
+gotoxy(26,2);
+printf("  / __\\__ _ _ __ _ __(_)_ __ | |__   ___");
+gotoxy(26,3);
+printf(" / /  / _` | '__| '__| | '_ \\| '_ \\ / _ \\");
+gotoxy(26,4);
+printf("/ /__| (_| | |  | |  | | | | | | | | (_) |");
+gotoxy(26,5);
+printf("\\____/\\__,_|_|  |_|  |_|_| |_|_| |_|\\___/");
+}
+
+//titulo do 2º menu
+
+textomenu2()
+{
+gotoxy(28,1);
+printf("  /\\/\\   ___ _ __  _   _");
+gotoxy(28,2);
+printf(" /    \\ / _ \\ '_ \\| | | |");
+gotoxy(28,3);
+printf("/ /\\/\\ \\  __/ | | | |_| |");
+gotoxy(28,4);
+printf("\\/    \\/\\___|_| |_|\\__,_|");
+}
+
+
+textologin()
+{
+gotoxy(8,1);
+printf("   __             _");
+gotoxy(8,2);
+printf("  / /  ___   __ _(_)_ __");
+gotoxy(8,3);
+printf(" / /  / _ \\ / _` | | '_ \\");
+gotoxy(8,4);
+printf("/ /__| (_) | (_| | | | | |");
+gotoxy(8,5);
+printf("\\____/\\___/ \\__, |_|_| |_|");
+gotoxy(8,6);
+printf("            |___/");
+}
+
 
 textoloja()
 {
@@ -2484,7 +2220,6 @@ gotoxy(23,1);
 printf("   __       _                          _ _");Sleep(70);
 }
 
-//logo da loja
 
 logo()
 {
@@ -2514,58 +2249,6 @@ gotoxy(41, 6);
 printf("--_-_-_-_---");
 Sleep(80);
 textcolor(WHITE);
-}
-
-//titulo do login
-
-textologin()
-{
-gotoxy(8,1);
-printf("   __             _");
-gotoxy(8,2);
-printf("  / /  ___   __ _(_)_ __");
-gotoxy(8,3);
-printf(" / /  / _ \\ / _` | | '_ \\");
-gotoxy(8,4);
-printf("/ /__| (_) | (_| | | | | |");
-gotoxy(8,5);
-printf("\\____/\\___/ \\__, |_|_| |_|");
-gotoxy(8,6);
-printf("            |___/");
-}
-
-//layout do login
-
-layoutlogin()
-{
-//esquerdo------------
-gotoxy(7,8);
-printf("/");
-gotoxy(6,9);
-printf("|");
-gotoxy(6,10);
-printf("|");
-gotoxy(6,11);
-printf("|");
-gotoxy(7,12);
-printf("\\");
-//direito------------
-gotoxy(59,8);
-printf("\\");
-gotoxy(60,9);
-printf("|");
-gotoxy(60,10);
-printf("|>");
-gotoxy(60,11);
-printf("|");
-gotoxy(59,12);
-printf("/");
-//cima------------------------------------------------------------
-gotoxy(8,7);
-printf("___________________________________________________");
-//baixo------------------------------------------------------------
-gotoxy(8,12);
-printf("___________________________________________________");
 }
 
 
@@ -2857,143 +2540,4 @@ printf(" | |XXXXXXXXXXXXXXXXXXXXXXXX|");gotoxy(2, 18);Sleep(60);
 printf(" | |XXXXXXXXXXXXXXXXXXXXXXXX|");gotoxy(2, 19);Sleep(60);
 printf(" | |XXXXXXXXXXXXXXXXXXXXXXXX|");gotoxy(2, 20);Sleep(60);
 printf(" \\_|________________________|");Sleep(60);
-}
-
-//developer art
-
-developer()
-{
-system("cls");
-printf("                        /|\n");Sleep(60);
-printf("                      /'||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||                                   FEITO POR: Duarte Cunha\n");Sleep(120);
-printf("                     |  ||                                   CURSO: TGPSI\n");Sleep(120);
-printf("                     |  ||                                   TURMA: I\n");Sleep(120);
-printf("                     |  ||                                   ANO: 10º\n");Sleep(120);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||\n");Sleep(60);
-printf("                     |  ||         __.--._\n");Sleep(60);
-printf("                     |  ||      /~~   __.-~\\ _\n");Sleep(60);
-printf("                     |  ||  _.-~ / _---._ ~-\\/~\\\n");Sleep(60);
-printf("                     |  || // /  /~/  .-  \\  /~-\\\n");Sleep(60);
-printf("                     |  ||((( /(/_(.-(-~~~~~-)_/ |\n");Sleep(60);
-printf("                     |  || ) (( |_.----~~~~~-._\\ /\n");Sleep(60);
-printf("                     |  ||    ) |              \\_|\n");Sleep(60);
-printf("                     |  ||     (| =-_   _.-=-  |~)        ,\n");Sleep(60);
-printf("                     |  ||      | `~~ |   ~~'  |/~-._-'/'/_,\n");Sleep(60);
-printf("                     |  ||       \\    |        /~-.__---~ , ,\n");Sleep(60);
-printf("                     |  ||       |   ~-''     || `\\_~~~----~\n");Sleep(60);
-printf("                     |  ||_.ssSS$$\\ -====-   / )\\_  ~~--~\n");Sleep(60);
-printf("             ___.----|~~~|%$$$$$$/ \\_    _.-~ /' )$s._\n");Sleep(60);
-printf("    __---~-~~        |   |%%$$$$/ /  ~~~~   /'  /$$$$$$$s__\n");Sleep(60);
-printf("  /~       ~\\    ============$$/ /        /'  /$$$$$$$$$$$SS-.\n");Sleep(60);
-printf("/'      ./\\\\\\\\\\\\_( ~---._(_))$/ /       /'  /$$$$%$$$$$~      \\\n");Sleep(60);
-printf("(      //////////(~-(..___)/$/ /      /'  /$$%$$%$$$$'         \\\n");Sleep(60);
-printf(" \\    |||||||||||(~-(..___)$/ /  /  /'  /$$$%$$$%$$$            |\n");Sleep(60);
-printf("  `-__ \\\\\\\\\\\\\\\\\\\\\\(-.(_____) /  / /'  /$$$$%$$$$$%$             |\n");Sleep(60);
-printf("      ~~""""""""""-\\.(____) /   /'  /$$$$$%%$$$$$$\\_            /\n");Sleep(60);
-printf("                    $|===|||  /'  /$$$$$$$%%%$$$$$( ~         ,'|\n");Sleep(60);
-printf("                __  $|===|%\\/'  /$$$$$$$$$$$%%%%$$|        ,''  |\n");Sleep(60);
-printf("               ///\\ $|===|/'  /$$$$$$%$$$$$$$%%%%$(            /'\n");Sleep(60);
-printf("                \\///\\|===|  /$$$$$$$$$%%$$$$$$%%%%$\\_-._       |\n");Sleep(60);
-printf("                 `\\//|===| /$$$$$$$$$$$%%%$$$$$$-~~~    ~      /\n");Sleep(60);
-printf("                   `\\|-~~(~~-`$$$$$$$$$%%%///////._       ._  |\n");Sleep(60);
-printf("                   (__--~(     ~\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\        \\ \\\n");Sleep(60);
-printf("                   (__--~~(       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|        \\/\n");Sleep(60);
-printf("                    (__--~(       ||||||||||||||||||/       _/\n");Sleep(60);
-printf("                     (__.--._____//////////////////__..---~~\n");Sleep(60);
-printf("                     |   """"'''''           ___,,,,ss$$$%\n");Sleep(60);
-printf("                    ,%\\__      __,,,\\sssSS$$$$$$$$$$$$$$%%\n");Sleep(60);
-printf("                  ,%%%%$$$$$$$$$$\\;;;;\\$$$$$$$$$$$$$$$$%%%$.\n");Sleep(60);
-printf("                 ,%%%%%%$$$$$$$$$$%\\;;;;\\$$$$$$$$$$$$%%%$$$$\n");Sleep(60);
-printf("               ,%%%%%%%%$$$$$$$$$%$$$\\;;;;\\$$$$$$$$$%%$$$$$$,\n");Sleep(60);
-printf("              ,%%%%%%%%%$$$$$$$$%$$$$$$\\;;;;\\$$$$$$%%$$$$$$$$\n");Sleep(60);
-printf("             ,%%%%%%%%%%%$$$$$$%$$$$$$$$$\\;;;;\\$$$%$$$$$$$$$$$\n");Sleep(60);
-printf("             %%%%%%%%%%%%$$$$$$$$$$$$$$$$$$\\;;;$$$$$$$$$$$$$$$\n");Sleep(60);
-printf("               ""==%%%%%%%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$SV""\n");Sleep(60);
-printf("                           $$$$$$$$$$$$$$$$$$$$=========\n");Sleep(60);
-printf("                             ----------------");Sleep(60);
-
-}
-
-
-
-//layout comprafinal
-
-comprafinal()
-{
-//linha-esquerda----------------------------------------------------------------------
-gotoxy(34,9);
-printf("______________________________________");
-gotoxy(33,10);
-printf("|");
-gotoxy(33,11);
-printf("|");
-gotoxy(33, 12);
-printf("|");
-gotoxy(33, 13);
-printf("|");
-gotoxy(33, 14);
-printf("|");
-gotoxy(33, 15);
-printf("|");
-gotoxy(33, 16);
-printf("|");
-gotoxy(33, 17);
-printf("|");
-gotoxy(33, 18);
-printf("|");
-gotoxy(33, 19);
-printf("|");
-gotoxy(33, 20);
-printf("|");
-gotoxy(33, 21);
-printf("|");
-//linha-direita-------------------------------------------------------------------------
-gotoxy(65,10);
-printf("       |");
-gotoxy(65,11);
-printf("       |");
-gotoxy(65, 12);
-printf("       |");
-gotoxy(65, 13);
-printf("       |");
-gotoxy(65, 14);
-printf("       |");
-gotoxy(65, 15);
-printf("       |");
-gotoxy(65, 16);
-printf("       | >");
-gotoxy(65, 17);
-printf("       |");
-gotoxy(65, 18);
-printf("       |");
-gotoxy(65, 19);
-printf("       |");
-gotoxy(65, 20);
-printf("       |");
-gotoxy(65, 21);
-printf("       |");
-gotoxy(34,21);
-printf("______________________________________\n\n\n");
-}
-
-
-textofinal()
-{
-gotoxy(18,2);
-printf("   ___ _                ___          ___");gotoxy(18,3);
-printf("  / __(_)_ __ ___      /   \\__ _    / __\\___  _ __ ___  _ __  _ __ __ _");gotoxy(18,4);
-printf(" / _\\ | | '_ ` _ \\    / /\\ / _` |  / /  / _ \\| '_ ` _ \\| '_ \\| '__/ _` |");gotoxy(18,5);
-printf("/ /   | | | | | | |  / /_// (_| | / /__| (_) | | | | | | |_) | | | (_| |");gotoxy(18,6);
-printf("\\/    |_|_| |_| |_| /___,' \\__,_| \\____/\\___/|_| |_| |_| .__/|_|  \\__,_|");gotoxy(18,7);
-printf("                                                       |_|");
 }
