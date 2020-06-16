@@ -66,8 +66,6 @@ gotoxy(33, 19);
 printf("|");
 gotoxy(33, 20);
 printf("|");
-gotoxy(33, 21);
-printf("|");
 //linha-direita-------------------------------------------------------------------------
 gotoxy(65,10);
 printf("       |");
@@ -80,9 +78,9 @@ printf("       |");
 gotoxy(65, 14);
 printf("       |");
 gotoxy(65, 15);
-printf("       |");
-gotoxy(65, 16);
 printf("       | >");
+gotoxy(65, 16);
+printf("       |");
 gotoxy(65, 17);
 printf("       |");
 gotoxy(65, 18);
@@ -91,9 +89,7 @@ gotoxy(65, 19);
 printf("       |");
 gotoxy(65, 20);
 printf("       |");
-gotoxy(65, 21);
-printf("       |");
-gotoxy(34,21);
+gotoxy(34,20);
 printf("______________________________________\n\n\n");
 }
 

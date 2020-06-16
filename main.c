@@ -314,7 +314,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -442,7 +442,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -570,7 +570,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -698,7 +698,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -826,7 +826,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -954,7 +954,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1048,7 +1048,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1180,7 +1180,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1308,7 +1308,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1436,7 +1436,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1564,7 +1564,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1657,7 +1657,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1745,7 +1745,7 @@ else
 gotoxy(8,3);
 printf("DESEJA PROCEDER COM A COMPRA DE:");
 textcolor(YELLOW);
-printf("%i ITENS",q.i);
+printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
@@ -1820,31 +1820,31 @@ void bemvindo()
 textcolor(WHITE);
 gotoxy(15, 4);
 printf("B");
-Sleep(90);
+Sleep(110);
 gotoxy(16, 4);
 printf("e");
-Sleep(90);
+Sleep(110);
 gotoxy(17, 4);
 printf("m");
-Sleep(90);
+Sleep(110);
 gotoxy(18, 4);
 printf("-");
-Sleep(90);
+Sleep(110);
 gotoxy(19, 4);
 printf("V");
-Sleep(90);
+Sleep(110);
 gotoxy(20, 4);
 printf("i");
-Sleep(90);
+Sleep(110);
 gotoxy(21, 4);
 printf("n");
-Sleep(90);
+Sleep(110);
 gotoxy(22, 4);
 printf("d");
-Sleep(90);
+Sleep(110);
 gotoxy(23, 4);
 printf("o:");
-Sleep(90);
+Sleep(110);
 }
 
 
@@ -2045,42 +2045,73 @@ Sleep(400);
 //ficheiros------------------------------------------------------
 SYSTEMTIME t;
 GetLocalTime(&t);
-fprintf(ficheiro, "--FATURA--\n");
-fprintf(ficheiro, "COMPRA FEITA POR: %s\n",p.user);
-fprintf(ficheiro, "DATA: %i/%i/%i\n",t.wDay,t.wMonth,t.wYear);
-fprintf(ficheiro, "-------------------------------------------------\n");
-fprintf(ficheiro, "QTD\n");
-fprintf(ficheiro, "Instrumentos:\n");
-fprintf(ficheiro, "%i - Guitarra\n%i - Piano\n%i - Violino\n%i - Flauta\n%i - Saxofone\n%i - Tambor\n",q.qt1,q.qt2,q.qt3,q.qt4,q.qt5,q.qt6);
-fprintf(ficheiro, "Outros:\n");
-fprintf(ficheiro, "%i - Coluna de Som\n%i - Palheta\n%i - Capo\n%i - Amplificador\n",q.qtcs,q.qtp,q.qtc,q.qta);
-fprintf(ficheiro, "-------------------------------------------------\n");
-fprintf(ficheiro, "LOCAL DE ENTREGA: %s\n",f.local);
-fprintf(ficheiro, "CARTÃO DE CRÉDITO: ***%s***\n",f.cc);
-fprintf(ficheiro, "CVC: ***%s***\n",f.cvc);
+//fatura
+fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
+fprintf(ficheiro, "                                                      -FATURA-                             \n");
+fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
+fprintf(ficheiro, "           COMPRA FEITA POR: %s                              \n",p.user);
+fprintf(ficheiro, "           DATA: %i/%i/%i                                    \n",t.wDay,t.wMonth,t.wYear);
+fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
+fprintf(ficheiro, "           QTD                                                \n");
+fprintf(ficheiro, "            Instrumentos:\n");
+fprintf(ficheiro, "              %i - Guitarra\n              %i - Piano\n              %i - Violino\n              %i - Flauta\n              %i - Saxofone\n              %i - Tambor\n",q.qt1,q.qt2,q.qt3,q.qt4,q.qt5,q.qt6);
+fprintf(ficheiro, "            Outros:\n");
+fprintf(ficheiro, "              %i - Coluna de Som\n              %i - Palheta\n              %i - Capo\n              %i - Amplificador\n",q.qtcs,q.qtp,q.qtc,q.qta);
+fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
+fprintf(ficheiro, "           LOCAL DE ENTREGA: %s                              \n",f.local);
+fprintf(ficheiro, "           CARTÃO DE CRÉDITO: ***%s***\n",f.cc);
+fprintf(ficheiro, "           CVC: ***%s***\n",f.cvc);
 if(f.vldd<=9)
 {
-fprintf(ficheiro, "VALIDADE: ***0%i/",f.vldd);
+fprintf(ficheiro, "           VALIDADE: ***0%i/",f.vldd);
 }
 else
 {
-fprintf(ficheiro, "VALIDADE: ***%i/",f.vldd);
+fprintf(ficheiro, "           VALIDADE: ***%i/",f.vldd);
 }
 fprintf(ficheiro, "%i***\n",f.vldm);
 
-fprintf(ficheiro, "-------------------------------------------------\n");
-fprintf(ficheiro, "TOTAL: %i$",q.qtotal);
+fprintf(ficheiro, "            -------------------------------------------------------------------------------\n");
+fprintf(ficheiro, "            TOTAL: %i$                                         \n",q.qtotal);
+fprintf(ficheiro, "            -------------------------------------------------------------------------------");
 fclose(ficheiro);
-fprintf(ficheiro2,"--TALÃO DE TROCA--\n");
-fprintf(ficheiro2,"COMPRA FEITA POR: %s\n",p.user);
-fprintf(ficheiro2,"DATA DA COMPRA: %i/%i/%i\n",t.wDay,t.wMonth,t.wYear);
-fprintf(ficheiro2,"PODE REALIZAR A TROCA OU DEVOLUÇÃO ATÉ: %i/%i/%i",t.wDay+7,t.wMonth,t.wYear);
+//talão
+fprintf(ficheiro2,"                         -TALÃO DE TROCA-                  \n");
+fprintf(ficheiro2,"----------------------------------------------------------------------------\n\n");
+fprintf(ficheiro2," COMPRA FEITA POR: %s\n\n",p.user);
+fprintf(ficheiro2," DATA DA COMPRA: %i/%i/%i\n\n",t.wDay,t.wMonth,t.wYear);
+fprintf(ficheiro2," PODE REALIZAR A TROCA OU DEVOLUÇÃO ATÉ: %i/%i/%i\n\n",t.wDay+7,t.wMonth,t.wYear);
+fprintf(ficheiro2,"----------------------------------------------------------------------------");
 fclose(ficheiro2);
 FILE *ficheiro3;
 ficheiro3=fopen("Ganhos.txt","a+");
-fprintf(ficheiro3,"TOTAL = %i$ no DIA: %i às %i:%i - Compra feita por: %s\n",q.qtotal,t.wDay,t.wHour,t.wMinute,p.user);
+fprintf(ficheiro3,"DIA: %i às %i:%i | TOTAL = %i$ - Compra feita por: %s\n--------------------------------------------------------------------------\n",q.qtotal,t.wDay,t.wHour,t.wMinute,p.user);
+gotoxy(76,15);
+printf("\\");
+Sleep(240);
+gotoxy(76,15);
+printf("/");
+Sleep(240);
+gotoxy(76,15);
+printf("\\");
+Sleep(240);
+gotoxy(76,15);
+printf("/");
+Sleep(240);
+gotoxy(76,15);
+printf("\\");
+Sleep(240);
+gotoxy(76,15);
+printf("/");
+Sleep(240);
+gotoxy(76,15);
+printf("\\");
+Sleep(240);
+gotoxy(76,15);
+printf("/");
+Sleep(240);
+gotoxy(76,15);
 textcolor(GREEN);
-gotoxy(76,16);
 printf("COMPRA EFETUADA");
 Sleep(1000);
 textcolor(WHITE);
@@ -2089,6 +2120,7 @@ fclose(ficheiro3);
 Sleep(1000);
 system("Fatura.txt");
 system("Talão_de_Troca.txt");
+saida();
 return 0;
 }
 
@@ -2139,7 +2171,7 @@ printf("p");Sleep(90);
 gotoxy(36, 4);
 printf("r");Sleep(90);
 gotoxy(37, 4);
-printf("e");Sleep(90);
+printf("e\n\n\n");Sleep(90);
 Sleep(1000);
 textcolor(WHITE);
 return 0;
@@ -2148,13 +2180,13 @@ return 0;
 
 textofinal()
 {
-gotoxy(18,2);
-printf("   ___ _                ___          ___");gotoxy(18,3);
-printf("  / __(_)_ __ ___      /   \\__ _    / __\\___  _ __ ___  _ __  _ __ __ _");gotoxy(18,4);
-printf(" / _\\ | | '_ ` _ \\    / /\\ / _` |  / /  / _ \\| '_ ` _ \\| '_ \\| '__/ _` |");gotoxy(18,5);
-printf("/ /   | | | | | | |  / /_// (_| | / /__| (_) | | | | | | |_) | | | (_| |");gotoxy(18,6);
-printf("\\/    |_|_| |_| |_| /___,' \\__,_| \\____/\\___/|_| |_| |_| .__/|_|  \\__,_|");gotoxy(18,7);
-printf("                                                       |_|");
+gotoxy(34,2);
+printf("   ___");gotoxy(34,3);
+printf("  / __\\___  _ __ ___  _ __  _ __ __ _");gotoxy(34,4);
+printf(" / /  / _ \\| '_ ` _ \\| '_ \\| '__/ _` |");gotoxy(34,5);
+printf("/ /__| (_) | | | | | | |_) | | | (_| |");gotoxy(34,6);
+printf("\\____/\\___/|_| |_| |_| .__/|_|  \\__,_|");gotoxy(34,7);
+printf("                     |_|");
 }
 
 
@@ -2435,7 +2467,7 @@ printf("                            [       |__-/       /");gotoxy(1, 22);Sleep(
 printf("                             [                 /");gotoxy(1, 23);Sleep(60);
 printf("                              [               /");gotoxy(1, 24);Sleep(60);
 printf("                               \\',          _/");gotoxy(1, 25);Sleep(60);
-printf("                                  ' ; _ . '|");Sleep(60);
+printf("                                  ' ; _ . '-");Sleep(60);
 }
 
 
