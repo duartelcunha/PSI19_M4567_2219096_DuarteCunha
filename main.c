@@ -6,8 +6,7 @@
 #include <locale.h>
 #include <time.h>
 #include "layouts.h"
-#define a 11
-#define b 4
+
 
 
 
@@ -19,7 +18,7 @@ typedef struct
 
 typedef struct
 {
-char cc[7];
+char cc[10];
 char cvc[3];
 int vldd;
 int vldm;
@@ -66,68 +65,28 @@ scanf("%i",&p.pin);
 Sleep(300);
 fflush(stdin);
 textcolor(WHITE);
-if(strcmp(p.user,"Duarte")==0 || strcmp(p.user,"Rui")==0)
+if(strcmp(p.user,"Duarte")==0)
 {
 if(p.pin==8006 || p.pin==1234)
 {
-textcolor(WHITE);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
+loading();
 textcolor(GREEN);
 gotoxy(63,10);
 printf("LOGIN EFETUADO COM SUCESSO");
 Sleep(1000);
+system("cls");
+textcolor(WHITE);
+layoutlogin2();
+bemvindo();
+gotoxy(33,10);
+textcolor(YELLOW);
+printf(" %s",p.user);
+Sleep(1300);
 //acesso
 }
 else
 {
-textcolor(WHITE);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
+loading();
 gotoxy(63,10);
 textcolor(RED);
 printf("CÓDIGO INCORRETO\n\n");
@@ -138,31 +97,7 @@ main();
 }
 else
 {
-textcolor(WHITE);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
-gotoxy(63,10);
-printf("\\");
-Sleep(240);
-gotoxy(63,10);
-printf("/");
-Sleep(240);
+loading();
 gotoxy(63,10);
 textcolor(RED);
 printf("UTILIZADOR INEXISTENTE\n\n");
@@ -172,6 +107,34 @@ main();
 }
 }
 
+void loading()
+{
+textcolor(WHITE);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+gotoxy(63,10);
+printf("\\");
+Sleep(240);
+gotoxy(63,10);
+printf("/");
+Sleep(240);
+}
 
 
 //--------------------------------------------------
@@ -181,17 +144,9 @@ main();
 int main()
 {
 setlocale(LC_ALL, "Portuguese");
-
 //------------------------------------------------------------------------------------
 system("cls");
 login();
-system("cls");
-//------------------------------------------------------------------------------------
-bemvindo();
-gotoxy(24, 4);
-textcolor(YELLOW);
-printf(" %s",p.user);
-Sleep(1300);
 //menu--------------------------------------------------------------------------------
 menu:
 menu1();
@@ -1818,31 +1773,31 @@ void bemvindo()
 {
 //bem-vindo-------------
 textcolor(WHITE);
-gotoxy(15, 4);
+gotoxy(23,10);
 printf("B");
 Sleep(110);
-gotoxy(16, 4);
+gotoxy(24,10);
 printf("e");
 Sleep(110);
-gotoxy(17, 4);
+gotoxy(25,10);
 printf("m");
 Sleep(110);
-gotoxy(18, 4);
+gotoxy(26,10);
 printf("-");
 Sleep(110);
-gotoxy(19, 4);
+gotoxy(27,10);
 printf("V");
 Sleep(110);
-gotoxy(20, 4);
+gotoxy(28,10);
 printf("i");
 Sleep(110);
-gotoxy(21, 4);
+gotoxy(29,10);
 printf("n");
 Sleep(110);
-gotoxy(22, 4);
+gotoxy(30,10);
 printf("d");
 Sleep(110);
-gotoxy(23, 4);
+gotoxy(31,10);
 printf("o:");
 Sleep(110);
 }
@@ -1859,6 +1814,18 @@ mainlayout();
 logo();
 textoloja();
 //art-------------------------------------------------------------------------
+gotoxy(22,15);
+printf("\\");
+Sleep(200);
+gotoxy(22,15);
+printf("/");
+Sleep(200);
+gotoxy(22,15);
+printf("\\");
+Sleep(200);
+gotoxy(22,15);
+printf("/");
+Sleep(200);
 gotoxy(16, 7);
 printf("1. Instrumentos");
 gotoxy(18, 8);
@@ -1891,8 +1858,19 @@ printf("\\  /~\\_/");
 textcolor(WHITE);
 gotoxy(18, 21);
 printf(" \\/");
-Sleep(600);
 //acessorios---------------------------------------------------------------------------------
+gotoxy(66,15);
+printf("\\");
+Sleep(200);
+gotoxy(66,15);
+printf("/");
+Sleep(200);
+gotoxy(66,15);
+printf("\\");
+Sleep(200);
+gotoxy(66,15);
+printf("/");
+Sleep(200);
 gotoxy(56, 7);
 printf("2. Outros");
 gotoxy(55, 10);
@@ -1917,7 +1895,7 @@ Sleep(600);
 
 //carrinho de compras
 
-void carrinho()
+int carrinho()
 {
 system("cls");
 textocarrinho();
@@ -1938,15 +1916,15 @@ gotoxy(26,15);
 printf("Saxofone: %i",q.qt5);
 gotoxy(26,16);
 printf("Tambor: %i",q.qt6);
-gotoxy(44,10);
+gotoxy(49,10);
 printf("Outros:");
-gotoxy(46,11);
+gotoxy(51,11);
 printf("Coluna de Som: %i",q.qtcs);
-gotoxy(46,12);
+gotoxy(51,12);
 printf("Palheta: %i",q.qtp);
-gotoxy(46,13);
+gotoxy(51,13);
 printf("Capo: %i",q.qtc);
-gotoxy(46,14);
+gotoxy(51,14);
 printf("Amplificador: %i",q.qta);
 gotoxy(26,18);
 printf("Deseja FINALIZAR a COMPRA?");
@@ -1959,10 +1937,11 @@ scanf("       %i",&q.nv[4]);
 
 //fatura | talão | ganhos
 
-void fatura()
+int fatura()
 {
 FILE *ficheiro;
 FILE *ficheiro2;
+int h1=0,h2=0;
 //preços--------------------------------------------------------
 //instrumentos
 q.q1=175*q.qt1;
@@ -1983,6 +1962,7 @@ ficheiro2 = fopen("Talão_de_Troca.txt", "w+" );
 system("cls");
 textofinal();
 comprafinal();
+
 fflush(stdin);
 gotoxy(35,11);
 printf("Local De Entrega: ");
@@ -1990,19 +1970,41 @@ gotoxy(53,11);
 gets(f.local);
 fflush(stdin);
 gotoxy(35,13);
-printf("(10) NÚMERO DO CARTÃO: **********");
-fflush(stdin);
+printf("(10) NÚMERO DO CARTÃO: ");
 gotoxy(58,13);
-fgets(f.cc,a,stdin);
+while(h1 < 10)
+    {
+f.cc[h1] = getch();
+if(h1 > 0 && f.cc[h1] == '\b')
+{
+h1 --;
+putch(8);
+}
+else
+putch(f.cc[h1]);
+if(f.cc[h1] == '\r')
+break;
+h1++;
+}
+fflush(stdin);
 gotoxy(35,15);
-printf("(3) CVC: ***");
-fflush(stdin);
+printf("(3) CVC: ");
 gotoxy(44,15);
-fgets(f.cvc,b,stdin);
-fflush(stdin);
-vld:
-textofinal();
-comprafinal();
+while(h2 < 3)
+{
+f.cvc[h2] = getch();
+if(h2 > 0 && f.cvc[h2] == '\b')
+{
+h2 --;
+putch(8);
+}
+else
+putch(f.cvc[h2]);
+
+if(f.cvc[h2] == '\r')
+break;
+h2++;
+}
 gotoxy(35,17);
 printf("(MÊS) Validade:  ");
 gotoxy(51,17);
@@ -2020,7 +2022,7 @@ printf("INTRODUZA UM MÊS VÁLIDO\n");
 textcolor(WHITE);
 system("pause");
 system("cls");
-goto vld;
+fatura();
 }
 gotoxy(35,19);
 printf("(ANO 20-30) Validade:  ");
@@ -2039,7 +2041,7 @@ printf("INTRODUZA UM ANO VÁLIDO\n");
 textcolor(WHITE);
 system("pause");
 system("cls");
-goto vld;
+fatura();
 }
 Sleep(400);
 //ficheiros------------------------------------------------------
@@ -2059,8 +2061,8 @@ fprintf(ficheiro, "            Outros:\n");
 fprintf(ficheiro, "              %i - Coluna de Som\n              %i - Palheta\n              %i - Capo\n              %i - Amplificador\n",q.qtcs,q.qtp,q.qtc,q.qta);
 fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
 fprintf(ficheiro, "           LOCAL DE ENTREGA: %s                              \n",f.local);
-fprintf(ficheiro, "           CARTÃO DE CRÉDITO: ***%s***\n",f.cc);
-fprintf(ficheiro, "           CVC: ***%s***\n",f.cvc);
+fprintf(ficheiro, "           CARTÃO DE CRÉDITO: %s\n",f.cc[h1]);
+fprintf(ficheiro, "           CVC: ***\n",f.cvc[h2]);
 if(f.vldd<=9)
 {
 fprintf(ficheiro, "           VALIDADE: ***0%i/",f.vldd);
@@ -2085,7 +2087,7 @@ fprintf(ficheiro2,"-------------------------------------------------------------
 fclose(ficheiro2);
 FILE *ficheiro3;
 ficheiro3=fopen("Ganhos.txt","a+");
-fprintf(ficheiro3,"DIA: %i às %i:%i | TOTAL = %i$ - Compra feita por: %s\n--------------------------------------------------------------------------\n",q.qtotal,t.wDay,t.wHour,t.wMinute,p.user);
+fprintf(ficheiro3,"DIA: %i às %i:%i | TOTAL = %i$ - Compra feita por: %s\n--------------------------------------------------------------------------\n",t.wDay,t.wHour,t.wMinute,q.qtotal,p.user);
 gotoxy(76,15);
 printf("\\");
 Sleep(240);
