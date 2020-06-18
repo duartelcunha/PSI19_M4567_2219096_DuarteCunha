@@ -48,8 +48,8 @@ void login()
 {
 textcolor(WHITE);
 system("cls");
-layoutlogin();
 textologin();
+layoutlogin();
 gotoxy(12,9);
 textcolor(YELLOW);
 fflush(stdin);
@@ -67,27 +67,27 @@ fflush(stdin);
 textcolor(WHITE);
 if(strcmp(p.user,"Duarte")==0)
 {
-if(p.pin==8006 || p.pin==1234)
+if(p.pin==8006)
 {
 loading();
 textcolor(GREEN);
-gotoxy(63,10);
+gotoxy(49,10);
 printf("LOGIN EFETUADO COM SUCESSO");
 Sleep(1000);
 system("cls");
 textcolor(WHITE);
 layoutlogin2();
 bemvindo();
-gotoxy(33,10);
+gotoxy(48,5);
 textcolor(YELLOW);
-printf(" %s",p.user);
-Sleep(1300);
+printf("%s",p.user);
+Sleep(1600);
 //acesso
 }
 else
 {
 loading();
-gotoxy(63,10);
+gotoxy(49,10);
 textcolor(RED);
 printf("CÓDIGO INCORRETO\n\n");
 Sleep(1800);
@@ -98,7 +98,7 @@ main();
 else
 {
 loading();
-gotoxy(63,10);
+gotoxy(49,10);
 textcolor(RED);
 printf("UTILIZADOR INEXISTENTE\n\n");
 Sleep(1800);
@@ -107,33 +107,34 @@ main();
 }
 }
 
+
 void loading()
 {
 textcolor(WHITE);
-gotoxy(63,10);
+gotoxy(49,10);
 printf("\\");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("/");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("\\");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("/");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("\\");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("/");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("\\");
-Sleep(240);
-gotoxy(63,10);
+Sleep(200);
+gotoxy(49,10);
 printf("/");
-Sleep(240);
+Sleep(200);
 }
 
 
@@ -152,9 +153,9 @@ menu:
 menu1();
 gotoxy(54, 20);
 printf("8: Carrinho");
-gotoxy(68, 20);
+gotoxy(70, 20);
 printf("9: Sair");
-gotoxy(31, 20);
+gotoxy(34, 20);
 printf("Digite o Nº: ");
 scanf("%i",&q.nv[1]);
 switch(q.nv[1])
@@ -211,9 +212,9 @@ scanf("%i",&q.qt1);
 q.q1=175*q.qt1;
 gotoxy(30, 11);
 printf("DESEJA ADICIONAR MAIS AO CARRINHO");
-gotoxy(30, 13);
+gotoxy(30, 12);
 printf("SIM: 1 | NÃO: 2 | Ver Carrinho: 3");
-gotoxy(30, 14);
+gotoxy(30, 13);
 scanf("%i",&q.nv[3]);
 if(q.nv[3]==3)
 {
@@ -259,7 +260,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -273,7 +274,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -387,7 +388,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -401,7 +402,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -515,7 +516,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -529,7 +530,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -643,7 +644,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -657,7 +658,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -771,7 +772,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -785,7 +786,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -899,7 +900,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -913,7 +914,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -993,7 +994,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto instrumentos;
 }
 else
@@ -1007,7 +1008,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1125,7 +1126,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto outros;
 }
 else
@@ -1139,7 +1140,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1253,7 +1254,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto outros;
 }
 else
@@ -1267,7 +1268,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1381,7 +1382,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto outros;
 }
 else
@@ -1395,7 +1396,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1509,7 +1510,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto outros;
 }
 else
@@ -1523,7 +1524,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1602,7 +1603,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto outros;
 }
 else
@@ -1616,7 +1617,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1690,7 +1691,7 @@ gotoxy(15,3);
 textcolor(YELLOW);
 printf("PARA PROCEDER TEM DE ADICIONAR AO CARRINHO PELO MENOS 1 ITEM");
 textcolor(WHITE);
-Sleep(1800);
+Sleep(2200);
 goto menu;
 }
 else
@@ -1704,7 +1705,7 @@ printf(" %i ITENS",q.i);
 textcolor(WHITE);
 gotoxy(8,4);
 printf("SIM: 1 | NÃO: 2");
-gotoxy(8,5);
+gotoxy(15,5);
 scanf("%i",&q.nv[5]);
 if(q.nv[5]==1)
 {
@@ -1773,31 +1774,31 @@ void bemvindo()
 {
 //bem-vindo-------------
 textcolor(WHITE);
-gotoxy(23,10);
+gotoxy(37,5);
 printf("B");
 Sleep(110);
-gotoxy(24,10);
+gotoxy(38,5);
 printf("e");
 Sleep(110);
-gotoxy(25,10);
+gotoxy(39,5);
 printf("m");
 Sleep(110);
-gotoxy(26,10);
+gotoxy(40,5);
 printf("-");
 Sleep(110);
-gotoxy(27,10);
+gotoxy(41,5);
 printf("V");
 Sleep(110);
-gotoxy(28,10);
+gotoxy(42,5);
 printf("i");
 Sleep(110);
-gotoxy(29,10);
+gotoxy(43,5);
 printf("n");
 Sleep(110);
-gotoxy(30,10);
+gotoxy(44,5);
 printf("d");
 Sleep(110);
-gotoxy(31,10);
+gotoxy(45,5);
 printf("o:");
 Sleep(110);
 }
@@ -1859,16 +1860,16 @@ textcolor(WHITE);
 gotoxy(18, 21);
 printf(" \\/");
 //acessorios---------------------------------------------------------------------------------
-gotoxy(66,15);
+gotoxy(67,14);
 printf("\\");
 Sleep(200);
-gotoxy(66,15);
+gotoxy(67,14);
 printf("/");
 Sleep(200);
-gotoxy(66,15);
+gotoxy(67,14);
 printf("\\");
 Sleep(200);
-gotoxy(66,15);
+gotoxy(67,14);
 printf("/");
 Sleep(200);
 gotoxy(56, 7);
@@ -1937,11 +1938,12 @@ scanf("       %i",&q.nv[4]);
 
 //fatura | talão | ganhos
 
-int fatura()
+void fatura()
 {
 FILE *ficheiro;
 FILE *ficheiro2;
-int h1=0,h2=0;
+int i,i2;
+int x,x2;
 //preços--------------------------------------------------------
 //instrumentos
 q.q1=175*q.qt1;
@@ -1959,52 +1961,66 @@ q.qtotal=q.q1+q.q2+q.q3+q.q4+q.q5+q.q6+q.qcs+q.qp+q.qc+q.qa;
 //cartão--------------------------------------------------------
 ficheiro = fopen("Fatura.txt", "w+" );
 ficheiro2 = fopen("Talão_de_Troca.txt", "w+" );
+fatura:
 system("cls");
 textofinal();
 comprafinal();
-
 fflush(stdin);
 gotoxy(35,11);
 printf("Local De Entrega: ");
 gotoxy(53,11);
 gets(f.local);
-fflush(stdin);
 gotoxy(35,13);
-printf("(10) NÚMERO DO CARTÃO: ");
-gotoxy(58,13);
-while(h1 < 10)
-    {
-f.cc[h1] = getch();
-if(h1 > 0 && f.cc[h1] == '\b')
-{
-h1 --;
-putch(8);
-}
-else
-putch(f.cc[h1]);
-if(f.cc[h1] == '\r')
-break;
-h1++;
-}
-fflush(stdin);
-gotoxy(35,15);
 printf("(3) CVC: ");
-gotoxy(44,15);
-while(h2 < 3)
+gotoxy(44,13);
+x2=0;
+scanf("%s", f.cvc);
+i2=strlen(f.cvc);
+while (x2<i2)
 {
-f.cvc[h2] = getch();
-if(h2 > 0 && f.cvc[h2] == '\b')
+x2++;
+}
+if(x2==3)
 {
-h2 --;
-putch(8);
+//continua
 }
 else
-putch(f.cvc[h2]);
-
-if(f.cvc[h2] == '\r')
-break;
-h2++;
+{
+system("cls");
+gotoxy(15,3);
+textcolor(YELLOW);
+printf("INTRODUZA UM CÓDIGO VÁLIDO\n");
+textcolor(WHITE);
+system("pause");
+system("cls");
+goto fatura;
 }
+gotoxy(35,15);
+printf("(12) NÚMERO DO CARTÃO: ");
+gotoxy(58,15);
+x=0;
+scanf("%s", f.cc);
+i=strlen(f.cc);
+while (x<i)
+{
+x++;
+}
+if(x==12)
+{
+//continua
+}
+else
+{
+system("cls");
+gotoxy(15,3);
+textcolor(YELLOW);
+printf("INTRODUZA UM NÚMERO DE CARTÃO VÁLIDO\n");
+textcolor(WHITE);
+system("pause");
+system("cls");
+goto fatura;
+}
+
 gotoxy(35,17);
 printf("(MÊS) Validade:  ");
 gotoxy(51,17);
@@ -2022,7 +2038,7 @@ printf("INTRODUZA UM MÊS VÁLIDO\n");
 textcolor(WHITE);
 system("pause");
 system("cls");
-fatura();
+goto fatura;
 }
 gotoxy(35,19);
 printf("(ANO 20-30) Validade:  ");
@@ -2041,7 +2057,7 @@ printf("INTRODUZA UM ANO VÁLIDO\n");
 textcolor(WHITE);
 system("pause");
 system("cls");
-fatura();
+goto fatura;
 }
 Sleep(400);
 //ficheiros------------------------------------------------------
@@ -2061,24 +2077,23 @@ fprintf(ficheiro, "            Outros:\n");
 fprintf(ficheiro, "              %i - Coluna de Som\n              %i - Palheta\n              %i - Capo\n              %i - Amplificador\n",q.qtcs,q.qtp,q.qtc,q.qta);
 fprintf(ficheiro, "           --------------------------------------------------------------------------------\n");
 fprintf(ficheiro, "           LOCAL DE ENTREGA: %s                              \n",f.local);
-fprintf(ficheiro, "           CARTÃO DE CRÉDITO: %s\n",f.cc[h1]);
-fprintf(ficheiro, "           CVC: ***\n",f.cvc[h2]);
+fprintf(ficheiro, "           CARTÃO DE CRÉDITO: %-4.4s **** ****\n",f.cc);
 if(f.vldd<=9)
 {
-fprintf(ficheiro, "           VALIDADE: ***0%i/",f.vldd);
+fprintf(ficheiro, "           VALIDADE: 0%i/",f.vldd);
 }
 else
 {
-fprintf(ficheiro, "           VALIDADE: ***%i/",f.vldd);
+fprintf(ficheiro, "           VALIDADE: %i/",f.vldd);
 }
-fprintf(ficheiro, "%i***\n",f.vldm);
+fprintf(ficheiro, "%i\n",f.vldm);
 
 fprintf(ficheiro, "            -------------------------------------------------------------------------------\n");
 fprintf(ficheiro, "            TOTAL: %i$                                         \n",q.qtotal);
 fprintf(ficheiro, "            -------------------------------------------------------------------------------");
 fclose(ficheiro);
 //talão
-fprintf(ficheiro2,"                         -TALÃO DE TROCA-                  \n");
+fprintf(ficheiro2,"                           -TALÃO DE TROCA-                  \n");
 fprintf(ficheiro2,"----------------------------------------------------------------------------\n\n");
 fprintf(ficheiro2," COMPRA FEITA POR: %s\n\n",p.user);
 fprintf(ficheiro2," DATA DA COMPRA: %i/%i/%i\n\n",t.wDay,t.wMonth,t.wYear);
@@ -2087,7 +2102,7 @@ fprintf(ficheiro2,"-------------------------------------------------------------
 fclose(ficheiro2);
 FILE *ficheiro3;
 ficheiro3=fopen("Ganhos.txt","a+");
-fprintf(ficheiro3,"DIA: %i às %i:%i | TOTAL = %i$ - Compra feita por: %s\n--------------------------------------------------------------------------\n",t.wDay,t.wHour,t.wMinute,q.qtotal,p.user);
+fprintf(ficheiro3,"DIA: %i às %i:%02i | TOTAL = %i$ - Compra feita por: %s\n--------------------------------------------------------------------------\n",t.wDay,t.wHour,t.wMinute,q.qtotal,p.user);
 gotoxy(76,15);
 printf("\\");
 Sleep(240);
@@ -2224,23 +2239,23 @@ printf("\\/    \\/\\___|_| |_|\\__,_|");
 textologin()
 {
 gotoxy(8,1);
-printf("   __             _");
+printf("   __             _");Sleep(80);
 gotoxy(8,2);
-printf("  / /  ___   __ _(_)_ __");
+printf("  / /  ___   __ _(_)_ __");Sleep(80);
 gotoxy(8,3);
-printf(" / /  / _ \\ / _` | | '_ \\");
+printf(" / /  / _ \\ / _` | | '_ \\");Sleep(80);
 gotoxy(8,4);
-printf("/ /__| (_) | (_| | | | | |");
+printf("/ /__| (_) | (_| | | | | |");Sleep(80);
 gotoxy(8,5);
-printf("\\____/\\___/ \\__, |_|_| |_|");
+printf("\\____/\\___/ \\__, |_|_| |_|");Sleep(80);
 gotoxy(8,6);
-printf("            |___/");
+printf("            |___/");Sleep(80);
 }
 
 
 textoloja()
 {
- gotoxy(23,6);
+gotoxy(23,6);
 printf("         |__/");Sleep(70);
 gotoxy(23,5);
 printf("\\____/\\___// |\\__,_| \\/    \\/\\__,_|___/_|_|\\_\\""");Sleep(70);
