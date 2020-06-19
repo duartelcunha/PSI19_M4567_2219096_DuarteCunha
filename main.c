@@ -8,13 +8,12 @@
 #include "layouts.h"
 
 
-
-
 typedef struct
 {
  char user[15];
  int pin;
 }utilizador;
+
 
 typedef struct
 {
@@ -24,6 +23,7 @@ int vldd;
 int vldm;
 char local[25];
 }checkout;
+
 
 typedef struct
 {
@@ -38,11 +38,14 @@ int qcs,qp,qc,qa;
 int qtotal;
 }qtd;
 
+
 qtd q;
 checkout f;
 utilizador p;
 
+
 //sistema login
+
 
 void login()
 {
@@ -139,7 +142,6 @@ Sleep(200);
 
 
 //--------------------------------------------------
-
 
 
 int main()
@@ -1768,6 +1770,7 @@ return 0;
 
 
 
+
 //bem-vindo
 
 void bemvindo()
@@ -1802,6 +1805,7 @@ gotoxy(45,5);
 printf("o:");
 Sleep(110);
 }
+
 
 
 //layout do 1º menu
@@ -1894,49 +1898,60 @@ Sleep(600);
 }
 
 
+
 //carrinho de compras
 
 int carrinho()
 {
+q.qtotal=q.q1+q.q2+q.q3+q.q4+q.q5+q.q6+q.qcs+q.qp+q.qc+q.qa;
 system("cls");
 textocarrinho();
 layoutcarrinho();
-gotoxy(23,10);
-printf("Instrumentos:");
-gotoxy(23,8);
+gotoxy(20,8);
 printf("QUANTIDADES");
-gotoxy(26,11);
+gotoxy(21,10);
+printf("Instrumentos:");
+gotoxy(23,11);
 printf("Guitarra: %i",q.qt1);
-gotoxy(26,12);
+gotoxy(23,12);
 printf("Piano: %i",q.qt2);
-gotoxy(26,13);
+gotoxy(23,13);
 printf("Violino: %i",q.qt3);
-gotoxy(26,14);
+gotoxy(23,14);
 printf("Flauta: %i",q.qt4);
-gotoxy(26,15);
+gotoxy(23,15);
 printf("Saxofone: %i",q.qt5);
-gotoxy(26,16);
+gotoxy(23,16);
 printf("Tambor: %i",q.qt6);
-gotoxy(49,10);
+gotoxy(44,10);
 printf("Outros:");
-gotoxy(51,11);
+gotoxy(46,11);
 printf("Coluna de Som: %i",q.qtcs);
-gotoxy(51,12);
+gotoxy(46,12);
 printf("Palheta: %i",q.qtp);
-gotoxy(51,13);
+gotoxy(46,13);
 printf("Capo: %i",q.qtc);
-gotoxy(51,14);
+gotoxy(46,14);
 printf("Amplificador: %i",q.qta);
-gotoxy(26,18);
+gotoxy(46,16);
+printf("TOTAL:");
+textcolor(YELLOW);
+gotoxy(53,16);
+printf("%i$",q.qtotal);
+textcolor(WHITE);
+gotoxy(20,19);
 printf("Deseja FINALIZAR a COMPRA?");
-gotoxy(26,19);
+gotoxy(20,20);
 printf("SIM: 1 | NÃO: 2 | 3: Apagar Carrinho");
-gotoxy(26,20);
+gotoxy(20,21);
 scanf("       %i",&q.nv[4]);
 }
 
 
+
 //fatura | talão | ganhos
+
+
 
 void fatura()
 {
